@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
-  [SerializeField] private GameObject bullet, bulletStorage;
-  [SerializeField] private float attackSpeed;
-  [SerializeField] private Slider delayTimer;
-  private bool readyToShoot = true;
+  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
+  [SerializeField] private float attackSpeed, reloadSpeed;
+  [SerializeField] private Slider delayTimer, ammoSlider;
+  private int ammoCount = 6;
+  private bool readyToShoot = true, reloading;
 
   void Update()
   {
@@ -40,12 +41,21 @@ public class Gun : MonoBehaviour
 
   private void GunShooting()
   {
-    if(Input.GetButtonDown("Fire1") && readyToShoot)
+    if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount > 0 && !reloading)
     {
+      ammoCount--;
+      ammoSlider.value -= 1;
       StartCoroutine(ShootingDelay());
       readyToShoot = false;
       GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), gunPosition.transform.rotation, bulletStorage.transform);
       shotBullet.GetComponent<Rigidbody2D>().AddForce((gunTip.position - gunPosition.position)* 10, ForceMode2D.Impulse);
+    }
+
+    if(Input.GetButtonDown("Reload") && ammoCount == 0 && !reloading)
+    {
+      reloadingBackground.SetActive(true);
+      reloading = true;
+      StartCoroutine(Reload());
     }
   }
 
@@ -58,5 +68,17 @@ public class Gun : MonoBehaviour
       delayTimer.value += 1;
     }
     readyToShoot = true;
+  }
+
+  private IEnumerator Reload()
+  {
+    for(int a = 0; a < 6; a++)
+    {
+      yield return new WaitForSeconds(reloadSpeed/6);
+      ammoSlider.value += 1;
+      ammoCount++;
+    }
+    reloading = false;
+    reloadingBackground.SetActive(false);
   }
 }
