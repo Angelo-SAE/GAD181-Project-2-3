@@ -31,4 +31,17 @@ public class Player : MonoBehaviour
       health = Mathf.Clamp(health, 0, 100);
       healthSlider.value = health;
     }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+      if(col.gameObject.tag = "Enemy")
+      {
+        takeDamage(col.gameObject);
+      }
+    }
+
+    private void takeDamage(GameObject enemy)
+    {
+      health -= enemy.GetComponent<enemyScript>().damage;
+    }
 }
