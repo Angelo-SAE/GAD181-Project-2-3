@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-      if(col.gameObject.tag = "Enemy")
+      if(col.gameObject.tag == "Enemy")
       {
         takeDamage(col.gameObject);
       }
@@ -42,6 +42,6 @@ public class Player : MonoBehaviour
 
     private void takeDamage(GameObject enemy)
     {
-      health -= enemy.GetComponent<enemyScript>().damage;
+      health -= enemy.GetComponent<Enemy>().damage;
     }
 }
