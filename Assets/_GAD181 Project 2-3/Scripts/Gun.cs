@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
   [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
-  [SerializeField] private float attackSpeed, reloadSpeed;
+  [SerializeField] private float attackSpeed, reloadSpeed, bulletDamage;
   [SerializeField] private Slider delayTimer, ammoSlider;
   private int ammoCount = 6;
   private bool readyToShoot = true, reloading;
@@ -49,6 +49,7 @@ public class Gun : MonoBehaviour
       readyToShoot = false;
       GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), gunPosition.transform.rotation, bulletStorage.transform);
       shotBullet.GetComponent<Rigidbody2D>().AddForce((gunTip.position - gunPosition.position)* 10, ForceMode2D.Impulse);
+      shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
     }
 
     if(Input.GetButtonDown("Reload") && ammoCount == 0 && !reloading)
