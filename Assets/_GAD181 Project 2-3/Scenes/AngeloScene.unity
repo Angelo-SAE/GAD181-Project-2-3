@@ -244,9 +244,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -2540,10 +2540,14 @@ MonoBehaviour:
   bullet: {fileID: 213320238411828574, guid: 773f4e3fa631b7a409747cce4e928bbd, type: 3}
   bulletStorage: {fileID: 1152188421}
   reloadingBackground: {fileID: 902017222}
-  attackSpeed: 0.4
-  reloadSpeed: 2
+  attackSpeed: 0.1
+  reloadSpeed: 0.2
+  bulletDamage: 0
+  bulletAmount: 1
+  bulletSpeed: 5
   delayTimer: {fileID: 122243902}
   ammoSlider: {fileID: 458654337}
+  ammoCount: 6
 --- !u!1 &2130254228
 GameObject:
   m_ObjectHideFlags: 0

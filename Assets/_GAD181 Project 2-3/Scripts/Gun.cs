@@ -7,18 +7,19 @@ public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
   [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
-  [SerializeField] private float attackSpeed, reloadSpeed, bulletDamage;
+  [SerializeField] private float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
   [SerializeField] private Slider delayTimer, ammoSlider;
-  private int ammoCount = 6;
+  [SerializeField] private int ammoCount = 6;
   private bool readyToShoot = true, reloading;
+  private float angle;
 
   void Update()
   {
-    GunLooking();
+    angle = GunLooking();
     GunShooting();
   }
 
-  private void GunLooking()
+  private float GunLooking()
   {
     Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10);
 
@@ -32,6 +33,7 @@ public class Gun : MonoBehaviour
       transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
       gunPosition.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 180));
     }
+    return(angle);
   }
 
   private float AngleBetweenPoints(Vector2 a, Vector2 b)
@@ -47,12 +49,15 @@ public class Gun : MonoBehaviour
       ammoSlider.value -= 1;
       StartCoroutine(ShootingDelay());
       readyToShoot = false;
-      GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), gunPosition.transform.rotation, bulletStorage.transform);
-      shotBullet.GetComponent<Rigidbody2D>().AddForce((gunTip.position - gunPosition.position)* 10, ForceMode2D.Impulse);
-      shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
+      for(float a = bulletAmount; a > 0; a--)
+      {
+        Quaternion rotation = Quaternion.Euler(new Vector3(gunPosition.transform.rotation.x, gunPosition.transform.rotation.y, angle + (bulletAmount * 6) - (a * 6) - (bulletAmount * 2)));
+        GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), rotation, bulletStorage.transform);
+        shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
+      }
     }
 
-    if(Input.GetButtonDown("Reload") && ammoCount == 0 && !reloading)
+    if(Input.GetButtonDown("Reload") && !reloading)
     {
       reloadingBackground.SetActive(true);
       reloading = true;
@@ -63,9 +68,9 @@ public class Gun : MonoBehaviour
   private IEnumerator ShootingDelay()
   {
     delayTimer.value = 0;
-    for(int a = 0; a < 100; a++)
+    for(int a = 0; a < 10; a++)
     {
-      yield return new WaitForSeconds(attackSpeed/100);
+      yield return new WaitForSeconds(attackSpeed/10);
       delayTimer.value += 1;
     }
     readyToShoot = true;
@@ -73,9 +78,10 @@ public class Gun : MonoBehaviour
 
   private IEnumerator Reload()
   {
-    for(int a = 0; a < 6; a++)
+    float reloadSpeedd = reloadSpeed/(6 - ammoSlider.value);
+    for(float a = ammoSlider.value; a < 6; a++)
     {
-      yield return new WaitForSeconds(reloadSpeed/6);
+      yield return new WaitForSeconds(reloadSpeedd);
       ammoSlider.value += 1;
       ammoCount++;
     }

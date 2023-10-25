@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1082368141892248043}
   - component: {fileID: 8261960732893674699}
   - component: {fileID: 2881574452624780222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5155002375457484538}
+  - {fileID: 722000349873603130}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8261960732893674699
@@ -74,6 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 0
+  bulletSpeed: 0
+  bulletDirection: {fileID: 7129272555901750781}
 --- !u!1 &656153507059603171
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +88,7 @@ GameObject:
   - component: {fileID: 5155002375457484538}
   - component: {fileID: 5564777123691222277}
   - component: {fileID: 6644937953161390892}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullet Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,3 +198,34 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!1 &7129272555901750781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722000349873603130}
+  m_Layer: 3
+  m_Name: Bullet Direction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722000349873603130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129272555901750781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1082368141892248043}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
