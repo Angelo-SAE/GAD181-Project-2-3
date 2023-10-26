@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed = 1.0f; 
-    public float AttackRange = 5.0f; 
+    public float movementSpeed = 1.0f;
+    public float AttackRange = 5.0f;
     public Transform player;
     public int damage;
 
@@ -27,5 +27,10 @@ public class Enemy : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         transform.Translate(direction * movementSpeed * Time.deltaTime);
+    }
+
+    private void TakeDamage(float damage)
+    {
+
     }
 }
