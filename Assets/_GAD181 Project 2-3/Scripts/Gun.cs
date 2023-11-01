@@ -9,14 +9,22 @@ public class Gun : MonoBehaviour
   [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
   [SerializeField] private float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
   [SerializeField] private Slider delayTimer, ammoSlider;
-  [SerializeField] private int ammoCount = 6;
+  [SerializeField] private int ammoCount, maxAmmo;
   private bool readyToShoot = true, reloading;
-  private float angle;
+  private float angle, scaleX;
+
+  void Start()
+  {
+    scaleX = transform.localScale.x;
+  }
 
   void Update()
   {
-    angle = GunLooking();
-    GunShooting();
+    if(!GamePause.paused)
+    {
+      angle = GunLooking();
+      GunShooting();
+    }
   }
 
   private float GunLooking()
@@ -27,10 +35,10 @@ public class Gun : MonoBehaviour
 
     if(angle + 180 >= 90 && angle + 180 <= 270)
     {
-      transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+      transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z);
       gunPosition.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
     } else {
-      transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+      transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
       gunPosition.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 180));
     }
     return(angle);
@@ -53,7 +61,9 @@ public class Gun : MonoBehaviour
       {
         Quaternion rotation = Quaternion.Euler(new Vector3(gunPosition.transform.rotation.x, gunPosition.transform.rotation.y, angle + (bulletAmount * 6) - (a * 6) - (bulletAmount * 2)));
         GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), rotation, bulletStorage.transform);
+        shotBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
         shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
+        shotBullet.GetComponent<Bullet>().ShootBullet();
       }
     }
 
@@ -78,8 +88,8 @@ public class Gun : MonoBehaviour
 
   private IEnumerator Reload()
   {
-    float reloadSpeedd = reloadSpeed/(6 - ammoSlider.value);
-    for(float a = ammoSlider.value; a < 6; a++)
+    float reloadSpeedd = reloadSpeed/(maxAmmo - ammoCount);
+    for(float a = ammoCount; a < maxAmmo; a++)
     {
       yield return new WaitForSeconds(reloadSpeedd);
       ammoSlider.value += 1;

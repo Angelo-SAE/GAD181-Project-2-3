@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    [SerializeField] private float movementSpeed;
+    [SerializeField] private float movementSpeed, health;
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private int health;
+    [SerializeField] private SpriteRenderer playerSprite;
 
     void Start()
     {
@@ -17,8 +17,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-      Movement();
-      Health();
+      if(!GamePause.paused)
+      {
+        Movement();
+        Health();
+      }
     }
 
     private void Movement()
@@ -32,16 +35,15 @@ public class Player : MonoBehaviour
       healthSlider.value = health;
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    public void TakeDamage(float damage)
     {
-      if(col.gameObject.tag == "Enemy")
-      {
-        takeDamage(col.gameObject);
-      }
+      health -= damage;
+      playerSprite.color = new Color(0.67f, 0.1f, 0.1f);
+      Invoke("ChangeColorBack", 0.1f);
     }
 
-    private void takeDamage(GameObject enemy)
+    private void ChangeColorBack()
     {
-      health -= enemy.GetComponent<Enemy>().damage;
+      playerSprite.color = new Color(0.26f, 0.26f, 0.26f);
     }
 }
