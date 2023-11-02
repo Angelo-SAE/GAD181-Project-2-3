@@ -7,9 +7,9 @@ public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
   [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
-  [SerializeField] private float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
+  public float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
   [SerializeField] private Slider delayTimer, ammoSlider;
-  [SerializeField] private int ammoCount, maxAmmo;
+  public int ammoCount, maxAmmo;
   private bool readyToShoot = true, reloading;
   private float angle, scaleX;
 
@@ -44,9 +44,9 @@ public class Gun : MonoBehaviour
     return(angle);
   }
 
-  private float AngleBetweenPoints(Vector2 a, Vector2 b)
+  private float AngleBetweenPoints(Vector2 playerPosition, Vector2 mousePosition)
   {
-    return Mathf.Atan2(a.y -b.y, a.x - b.x) * Mathf.Rad2Deg;
+    return Mathf.Atan2(playerPosition.y - mousePosition.y, playerPosition.x - mousePosition.x) * Mathf.Rad2Deg;
   }
 
   private void GunShooting()

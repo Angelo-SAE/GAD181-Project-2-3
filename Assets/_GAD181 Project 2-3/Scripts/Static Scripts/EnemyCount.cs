@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class EnemyCount
 {
-    public static int enemyCount = 3;
+    public static int enemyCount = 0;
 }

@@ -4,7 +4,7 @@ public class BulletDamage : MonoBehaviour
 {
     public float damage = 10f;
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -14,7 +14,7 @@ public class BulletDamage : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
             }
 
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 }
