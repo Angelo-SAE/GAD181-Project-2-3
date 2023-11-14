@@ -6,6 +6,7 @@ public class ExitLadder : MonoBehaviour
 {
 
   private bool interactable;
+  [SerializeField] private GameObject winMenu;
 
 
   void Update()
@@ -31,9 +32,8 @@ public class ExitLadder : MonoBehaviour
     {
       if(EnemyCount.enemyCount == 0)
       {
-        Debug.Log("Can Exit");
-      } else {
-        Debug.Log("Can't Exit");
+        GamePause.Pause();
+        winMenu.SetActive(true);
       }
     }
 }

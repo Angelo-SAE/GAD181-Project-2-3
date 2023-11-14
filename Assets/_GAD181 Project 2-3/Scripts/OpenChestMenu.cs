@@ -48,8 +48,7 @@ public class OpenChestMenu : MonoBehaviour
           tempCards.RemoveAt(rand);
         }
         cardStorage.transform.position = new Vector3(960f, 620f, 0f);
-        GamePause.paused = true;
-        Time.timeScale = 0;
+        GamePause.Pause();
         menuOpen = true;
       }
     }
@@ -60,8 +59,7 @@ public class OpenChestMenu : MonoBehaviour
       {
         Destroy(cardStorage);
         chestPanel.SetActive(false);
-        GamePause.paused = false;
-        Time.timeScale = 1;
+        GamePause.UnPause();
       }
     }
 }

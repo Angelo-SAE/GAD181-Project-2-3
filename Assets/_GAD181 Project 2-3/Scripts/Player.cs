@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float movementSpeed, health;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private GameObject deathMenu, pauseMenu;
+    private bool isPaused;
 
     void Start()
     {
@@ -22,6 +24,8 @@ public class Player : MonoBehaviour
         Movement();
         Health();
       }
+      Dead();
+      PauseGame();
     }
 
     private void Movement()
@@ -45,5 +49,34 @@ public class Player : MonoBehaviour
     private void ChangeColorBack()
     {
       playerSprite.color = new Color(0.26f, 0.26f, 0.26f);
+    }
+
+    private void Dead()
+    {
+      if(health <= 0)
+      {
+        GamePause.Pause();
+        deathMenu.SetActive(true);
+      }
+    }
+
+    public void PauseGame()
+    {
+      if(Input.GetButtonDown("Pause") && !isPaused && !GamePause.paused)
+      {
+        GamePause.Pause();
+        pauseMenu.SetActive(true);
+        isPaused = true;
+      } else if(Input.GetButtonDown("Pause") && GamePause.paused && isPaused)
+      {
+        UnPause();
+      }
+    }
+
+    public void UnPause()
+    {
+      pauseMenu.SetActive(false);
+      isPaused = false;
+      GamePause.UnPause();
     }
 }
