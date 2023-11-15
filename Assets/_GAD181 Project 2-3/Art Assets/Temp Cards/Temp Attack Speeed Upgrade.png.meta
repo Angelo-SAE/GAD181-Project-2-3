@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Temp Attack Speeed Upgrade_0: 5014587941976200669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
