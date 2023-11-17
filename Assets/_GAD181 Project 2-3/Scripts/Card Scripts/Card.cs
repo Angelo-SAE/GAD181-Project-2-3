@@ -26,5 +26,13 @@ public class Card : MonoBehaviour
       {
         player.GetComponent<Gun>().attackSpeed -= (player.GetComponent<Gun>().attackSpeed/10);
       }
+      if(whichCard == 3)
+      {
+        player.GetComponent<Player>().movementSpeed += 0.5f;
+      }
+      if(whichCard == 4)
+      {
+        player.GetComponent<Gun>().bulletDamage += 10f;
+      }
     }
 }

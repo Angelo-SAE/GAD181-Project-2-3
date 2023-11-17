@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    [SerializeField] private float movementSpeed, health;
+    public float movementSpeed, health;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private GameObject deathMenu, pauseMenu;
