@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Temp Damage Increase Upgrade_0: -4979347238566438445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

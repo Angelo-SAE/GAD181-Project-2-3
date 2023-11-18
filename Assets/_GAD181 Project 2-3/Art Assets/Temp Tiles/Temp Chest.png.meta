@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Temp Chest_0: -7287773693136104581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

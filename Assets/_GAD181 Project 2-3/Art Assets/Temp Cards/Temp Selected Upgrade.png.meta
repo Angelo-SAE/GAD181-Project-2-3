@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Temp Selected Upgrade_0: 1424817605547070636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

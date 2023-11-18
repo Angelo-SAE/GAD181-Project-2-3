@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Temp Balista_0: -2005539731010573083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

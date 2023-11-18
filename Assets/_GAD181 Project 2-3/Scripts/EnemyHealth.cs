@@ -6,6 +6,9 @@ public class EnemyHealth : MonoBehaviour
     public Slider healthSlider;
     public float maxHealth = 100f;
     private float currentHealth;
+    public AudioSource Death;
+    
+
 
     void Start()
     {
@@ -21,9 +24,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            
+            Death.Play();
             Destroy(gameObject);
         }
+        
+
     }
 
     void UpdateHealthUI()
