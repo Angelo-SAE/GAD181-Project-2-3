@@ -7205,7 +7205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 764536651}
-  cameraSpeed: 5
+  cameraSpeed: 10
 --- !u!81 &1628711297
 AudioListener:
   m_ObjectHideFlags: 0
