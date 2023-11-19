@@ -6,8 +6,12 @@ public class Enemy : MonoBehaviour
 {
     public float movementSpeed = 1.0f;
     public float AttackRange = 5.0f;
-    public Transform player;
-    public int damage;
+    private GameObject player;
+
+    void Start()
+    {
+      player = GameObject.Find("Player");
+    }
 
     private void Update()
     {
@@ -17,21 +21,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private bool IsPlayerInRange()
+    public bool IsPlayerInRange()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         return distanceToPlayer <= AttackRange;
     }
 
     private void MoveTowardsPlayer()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = (player.transform.position - transform.position).normalized;
         transform.Translate(direction * movementSpeed * Time.deltaTime);
-    }
-
-    private void TakeDamage(float damage)
-    {
-
     }
 
 }

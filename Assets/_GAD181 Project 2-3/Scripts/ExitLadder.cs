@@ -7,6 +7,7 @@ public class ExitLadder : MonoBehaviour
 
   private bool interactable;
   [SerializeField] private GameObject winMenu;
+  public Vector2Int holeOverlap;
 
 
   void Update()
@@ -20,7 +21,7 @@ public class ExitLadder : MonoBehaviour
 
     private void CheckInteractable()
     {
-      if(Physics2D.OverlapBox(new Vector3(-1.5f, 8.5f, transform.position.z), new Vector2(1.5f, 1.5f), 0f,LayerMask.GetMask("Player")))
+      if(Physics2D.OverlapBox(new Vector2(holeOverlap.x + 0.5f, holeOverlap.y + 0.5f), new Vector2(1.5f, 1.5f), 0f,LayerMask.GetMask("Player")))
       {
         interactable = true;
       } else {

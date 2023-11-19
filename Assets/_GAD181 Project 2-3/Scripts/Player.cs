@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject deathMenu, pauseMenu;
     private bool isPaused;
 
+    void Awake()
+    {
+      GamePause.UnPause();
+    }
+
     void Start()
     {
       rb2d = gameObject.GetComponent<Rigidbody2D>();
