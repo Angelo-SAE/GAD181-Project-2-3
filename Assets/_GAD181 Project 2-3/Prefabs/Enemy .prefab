@@ -123,10 +123,12 @@ GameObject:
   - component: {fileID: 3314132034207165838}
   - component: {fileID: 7169173345271463709}
   - component: {fileID: 3383358639696086988}
+  - component: {fileID: 3624168633404009272}
   - component: {fileID: 6454129816904139431}
+  - component: {fileID: 918135796769162511}
   m_Layer: 0
   m_Name: 'Enemy '
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +143,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.09, y: 4.71, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4780182735589833992}
@@ -209,10 +211,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256deb819db254749919a8bf733b2a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 3
   AttackRange: 5
-  player: {fileID: 0}
-  damage: 0
+--- !u!114 &3624168633404009272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350495297506954993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f33288c2700674cbd8230255bd3a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 5979208941705615192}
+  maxHealth: 100
+  Death: {fileID: 2164998751768511594, guid: 32d3d632404efa745b68cee0980051fa, type: 3}
 --- !u!61 &6454129816904139431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -257,8 +272,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.92, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &918135796769162511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350495297506954993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bbaed1a80a960409bdcb1efce3ed8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &3734842427518702721
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,12 @@ public class Spikes : MonoBehaviour
 {
 
   [SerializeField] private float damage;
-  [SerializeField] private GameObject player;
+  private GameObject player;
+
+  void Start()
+  {
+    player = GameObject.Find("Player");
+  }
 
     private void OnTriggerEnter2D(Collider2D col)
     {

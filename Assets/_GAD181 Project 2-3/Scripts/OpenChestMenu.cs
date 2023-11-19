@@ -6,21 +6,25 @@ public class OpenChestMenu : MonoBehaviour
 {
   [SerializeField] private GameObject chestPanel, cardPanel;
   [SerializeField] private List<GameObject> cards;
-  private bool menuOpen, interactable;
+  private bool menuOpen, interactable, hasOpened;
   private GameObject cardStorage;
+  public Vector2Int chestOverlap;
 
     void Update()
     {
-      CheckInteractable();
-      if(!GamePause.paused && interactable)
+      if(!hasOpened)
       {
-        OpenChest();
+        CheckInteractable();
+        if(!GamePause.paused && interactable)
+        {
+          OpenChest();
+        }
       }
     }
 
     private void CheckInteractable()
     {
-      if(Physics2D.OverlapBox(new Vector3(9.5f, 1.5f, transform.position.z), new Vector2(1.5f, 1.5f), 0f,LayerMask.GetMask("Player")))
+      if(Physics2D.OverlapBox(new Vector2(chestOverlap.x + 0.5f, chestOverlap.y + 0.5f), new Vector2(2, 2), 0f,LayerMask.GetMask("Player")))
       {
         interactable = true;
       } else {
@@ -32,6 +36,7 @@ public class OpenChestMenu : MonoBehaviour
     {
       if(Input.GetButtonDown("Interact"))
       {
+        hasOpened = true;
         chestPanel.SetActive(true);
         cardStorage = Instantiate(cardPanel, new Vector3(0f, 0f, 0f), transform.rotation, chestPanel.transform);
         List<GameObject> tempCards = new List<GameObject>(cards);

@@ -6,6 +6,9 @@ public class EnemyHealth : MonoBehaviour
     public Slider healthSlider;
     public float maxHealth = 100f;
     private float currentHealth;
+    public AudioSource Death;
+
+
 
     void Start()
     {
@@ -15,18 +18,22 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+      if(GetComponent<Enemy>().IsPlayerInRange())
+      {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
 
         if (currentHealth <= 0)
         {
-            
-            Destroy(gameObject);
+          EnemyCount.enemyCount--;
+          Instantiate(Death);
+          Destroy(gameObject);
         }
+      }
     }
 
-    void UpdateHealthUI()
+    private void UpdateHealthUI()
     {
         healthSlider.value = currentHealth / maxHealth;
     }
