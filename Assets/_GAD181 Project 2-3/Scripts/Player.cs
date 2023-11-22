@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
       GamePause.UnPause();
+      EnemyCount.enemyCount = 5;
     }
 
     void Start()
@@ -40,7 +41,7 @@ public class Player : MonoBehaviour
 
     private void Health()
     {
-      health = Mathf.Clamp(health, 0, 100);
+      health = Mathf.Clamp(health, 0, healthSlider.maxValue);
       healthSlider.value = health;
     }
 
