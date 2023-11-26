@@ -6,7 +6,8 @@ public class OpenChestMenu : MonoBehaviour
 {
   [SerializeField] private GameObject chestPanel, cardPanel;
   [SerializeField] private List<GameObject> cards;
-  private bool menuOpen, interactable, hasOpened;
+  private bool menuOpen, interactable;
+  public bool hasOpened;
   private GameObject cardStorage;
   public Vector2Int chestOverlap;
 
@@ -36,6 +37,7 @@ public class OpenChestMenu : MonoBehaviour
     {
       if(Input.GetButtonDown("Interact"))
       {
+        GetComponent<TileMapPainter>().PaintChestOpenTile(chestOverlap);
         hasOpened = true;
         chestPanel.SetActive(true);
         cardStorage = Instantiate(cardPanel, new Vector3(0f, 0f, 0f), transform.rotation, chestPanel.transform);

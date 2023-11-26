@@ -6,13 +6,15 @@ public class Generate : MonoBehaviour
 {
   [SerializeField] private GameObject player;
 
-    void Update()
+    void Awake()
     {
-      if(Input.GetKeyDown(KeyCode.J))
-      {
-        player.transform.position = new Vector2(0.5f,0.5f);
-        GenerateTilemap();
-      }
+      GenerateMap();
+    }
+
+    public void GenerateMap()
+    {
+      player.transform.position = new Vector2(0.5f,0.5f);
+      GenerateTilemap();
     }
 
       private void GenerateTilemap()
@@ -20,7 +22,7 @@ public class Generate : MonoBehaviour
         HashSet<Vector2Int> floorPositions = GetComponent<FloorGeneration>().GenerateFloor();
         GetComponent<TileMapPainter>().PaintFloorTiles(floorPositions);
         HashSet<Vector2Int> wallPositions = GetComponent<WallGeneration>().GenerateWall(floorPositions);
-        GetComponent<TileMapPainter>().PaintWallTiles(wallPositions);
+        GetComponent<TileMapPainter>().PaintWallTiles(GetComponent<WallGeneration>().GenerateWallType(floorPositions,wallPositions));
         Vector2Int holePosition = GetComponent<HoleGeneration>().GenerateHole(floorPositions, wallPositions);
         GetComponent<ExitLadder>().holeOverlap = holePosition;
         GetComponent<TileMapPainter>().PaintHoleTile(holePosition);
@@ -34,6 +36,7 @@ public class Generate : MonoBehaviour
         GetComponent<TileMapPainter>().PaintSpikeTiles(spikePositions);
         objectPositions = AddToHashSet(objectPositions, spikePositions);
         GetComponent<EnemyGeneration>().GenerateEnemy(floorPositions, objectPositions);
+        GetComponent<ExitLadder>().holeClosed = true;
       }
 
       private HashSet<Vector2Int> AddToHashSet(HashSet<Vector2Int> first, HashSet<Vector2Int> second)

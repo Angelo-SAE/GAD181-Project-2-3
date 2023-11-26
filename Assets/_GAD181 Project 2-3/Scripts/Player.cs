@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
       GamePause.UnPause();
-      EnemyCount.enemyCount = 5;
     }
 
     void Start()
