@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
     private void Health()
     {
-      health = Mathf.Clamp(health, 0, 100);
+      health = Mathf.Clamp(health, 0, healthSlider.maxValue);
       healthSlider.value = health;
     }
 

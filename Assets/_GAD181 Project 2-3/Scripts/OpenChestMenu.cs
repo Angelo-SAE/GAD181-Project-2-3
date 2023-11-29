@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class OpenChestMenu : MonoBehaviour
 {
-  [SerializeField] private GameObject chestPanel, cardPanel;
+  [SerializeField] private GameObject chestPanel, card1Storage, card2Storage;
   [SerializeField] private List<GameObject> cards;
-  private bool menuOpen, interactable, hasOpened;
-  private GameObject cardStorage;
+  private bool menuOpen, interactable;
+  public bool hasOpened;
+  private GameObject card1, card2;
   public Vector2Int chestOverlap;
 
     void Update()
@@ -36,23 +37,23 @@ public class OpenChestMenu : MonoBehaviour
     {
       if(Input.GetButtonDown("Interact"))
       {
+        GetComponent<TileMapPainter>().PaintChestOpenTile(chestOverlap);
         hasOpened = true;
         chestPanel.SetActive(true);
-        cardStorage = Instantiate(cardPanel, new Vector3(0f, 0f, 0f), transform.rotation, chestPanel.transform);
         List<GameObject> tempCards = new List<GameObject>(cards);
         for(int a = 0; a < 2; a++)
         {
           int rand = Random.Range(0, tempCards.Count);
-          GameObject card = Instantiate(tempCards[rand], new Vector3(-182f * (1 - (a * 2)), 31f, 0f), transform.rotation, cardStorage.transform);
           if(a == 0)
           {
-            chestPanel.GetComponent<CardSelection>().card1 = card;
+            card1 = Instantiate(tempCards[rand], card1Storage.transform.position, tempCards[rand].transform.localRotation, card1Storage.transform);
+            chestPanel.GetComponent<CardSelection>().card1 = card1;
           } else {
-            chestPanel.GetComponent<CardSelection>().card2 = card;
+            card2 = Instantiate(tempCards[rand], card2Storage.transform.position, tempCards[rand].transform.localRotation, card2Storage.transform);
+            chestPanel.GetComponent<CardSelection>().card2 = card2;
           }
           tempCards.RemoveAt(rand);
         }
-        cardStorage.transform.position = new Vector3(960f, 620f, 0f);
         GamePause.Pause();
         menuOpen = true;
       }
@@ -62,7 +63,8 @@ public class OpenChestMenu : MonoBehaviour
     {
       if(menuOpen)
       {
-        Destroy(cardStorage);
+        Destroy(card1);
+        Destroy(card2);
         chestPanel.SetActive(false);
         GamePause.UnPause();
       }
