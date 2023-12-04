@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-      rb2d.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, Input.GetAxisRaw("Vertical") * movementSpeed);
+      rb2d.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * movementSpeed;
     }
 
     private void Health()

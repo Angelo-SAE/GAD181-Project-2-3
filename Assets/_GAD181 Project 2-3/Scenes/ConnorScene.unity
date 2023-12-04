@@ -2796,6 +2796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   health: 100
+  maxHealth: 100
   healthSlider: {fileID: 311161820}
   playerSprite: {fileID: 1396263916}
   deathMenu: {fileID: 1724805398}

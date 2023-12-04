@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160104db322ccbf42a7f8be1419d1369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 4
   health: 300
   maxHealth: 300
   healthSlider: {fileID: 740771960}
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5116fc0c68497ce4aa71a8cbe2ab9a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySmall: {fileID: 2350495297506954993, guid: c4d35496c332d0a4b927570740cc6821, type: 3}
+  enemySmall: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
   enemyBig: {fileID: 0}
 --- !u!114 &327369281
 MonoBehaviour:

@@ -18,8 +18,20 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-      if(GetComponent<Enemy>().IsPlayerInRange())
+      if(GetComponent<Enemy>().active)
       {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHealthUI();
+
+        if (currentHealth <= 0)
+        {
+          EnemyCount.enemyCount--;
+          Instantiate(Death);
+          Destroy(gameObject);
+        }
+      } else {
+        GetComponent<Enemy>().active = true;
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();

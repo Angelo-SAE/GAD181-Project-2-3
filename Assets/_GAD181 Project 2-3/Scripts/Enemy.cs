@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed = 1.0f;
-    public float AttackRange = 5.0f;
+    public float movementSpeed;
+    public float AttackRange;
     private GameObject player;
+    private Rigidbody2D rb2d;
+    public bool active;
+    [SerializeField] private Animator enemyAnimator;
 
     void Start()
     {
       player = GameObject.Find("Player");
+      rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (IsPlayerInRange())
+      enemyAnimator.SetBool("Active", active);
+        if (active)
         {
-            MoveTowardsPlayer();
+          MoveTowardsPlayer();
+        } else {
+          if(IsPlayerInRange())
+          {
+            active = true;
+          }
         }
     }
 
@@ -30,7 +40,7 @@ public class Enemy : MonoBehaviour
     private void MoveTowardsPlayer()
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        transform.Translate(direction * movementSpeed * Time.deltaTime);
+        rb2d.velocity = direction * movementSpeed;
     }
 
 }
