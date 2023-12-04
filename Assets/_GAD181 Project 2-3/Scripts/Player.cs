@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public float movementSpeed, health;
+    public float movementSpeed, health, maxHealth;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private GameObject deathMenu, pauseMenu;
@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
     private void Health()
     {
+      healthSlider.maxValue = maxHealth;
       health = Mathf.Clamp(health, 0, healthSlider.maxValue);
       healthSlider.value = health;
     }

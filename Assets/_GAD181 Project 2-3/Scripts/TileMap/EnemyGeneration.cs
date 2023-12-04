@@ -17,9 +17,20 @@ public class EnemyGeneration : MonoBehaviour
         Vector2Int enemyPosition = floorPositions.ElementAt(Random.Range(0,floorPositions.Count));
         if(!objectPositions.Contains(enemyPosition))
         {
-          a--;
-          objectPositions.Add(enemyPosition);
-          Instantiate(enemySmall, new Vector3(enemyPosition.x + 0.5f, enemyPosition.y + 0.5f, -1f), transform.rotation);
+          int ok = 0;
+          foreach(Vector2Int position in StaticTilemaps.enemyCantSpawn)
+          {
+            if(enemyPosition == position)
+            {
+              ok++;
+            }
+          }
+          if(ok == 0)
+          {
+            a--;
+            objectPositions.Add(enemyPosition);
+            Instantiate(enemySmall, new Vector3(enemyPosition.x + 0.5f, enemyPosition.y + 0.5f, -1f), transform.rotation);
+          }
         }
       }
     }
