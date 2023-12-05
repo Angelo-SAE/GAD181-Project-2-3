@@ -17,7 +17,7 @@ public class Spikes : MonoBehaviour
     {
       if(col.gameObject.layer == 6)
       {
-        player.GetComponent<Player>().TakeDamage(damage);
+        player.GetComponent<Player>().TakeDamage(damage, new Vector3(0f, 0f, 0f), 0f);
       }
     }
 

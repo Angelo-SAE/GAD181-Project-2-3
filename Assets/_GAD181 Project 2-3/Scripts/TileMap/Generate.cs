@@ -36,6 +36,8 @@ public class Generate : MonoBehaviour
         HashSet<Vector2Int> spikePositions = GetComponent<SpikeGeneration>().GenerateSpike(floorPositions, wallPositions, objectPositions);
         GetComponent<TileMapPainter>().PaintSpikeTiles(spikePositions);
         objectPositions = AddToHashSet(objectPositions, spikePositions);
+        HashSet<Vector2Int> crossbowPositions = GetComponent<CrossBowTrapGeneration>().GenerateCrossbow(floorPositions, wallPositions, objectPositions);
+        objectPositions = AddToHashSet(objectPositions, crossbowPositions);
         GetComponent<EnemyGeneration>().GenerateEnemy(floorPositions, objectPositions);
         GetComponent<ExitLadder>().holeClosed = true;
       }

@@ -6,7 +6,7 @@ public class BalistaArrow : MonoBehaviour
 {
 
   [SerializeField] private GameObject arrowDirection;
-  public float arrowDamage, arrowSpeed;
+  public float arrowDamage, arrowSpeed, pushForce;
 
   public void ShootArrow()
   {
@@ -18,7 +18,8 @@ public class BalistaArrow : MonoBehaviour
     {
       if(col.gameObject.layer == 6)
       {
-        GameObject.Find("Player").GetComponent<Player>().TakeDamage(arrowDamage);
+        Vector3 direction = col.gameObject.transform.position - transform.position;
+        GameObject.Find("Player").GetComponent<Player>().TakeDamage(arrowDamage, direction, pushForce);
       }
       Destroy(gameObject);
     }

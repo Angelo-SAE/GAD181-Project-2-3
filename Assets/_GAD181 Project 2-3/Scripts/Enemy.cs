@@ -41,6 +41,12 @@ public class Enemy : MonoBehaviour
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
         rb2d.velocity = direction * movementSpeed;
+        if(rb2d.velocity.x > 0)
+        {
+          transform.localScale = new Vector3(-1f, 1f, 1f);
+        } else {
+          transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 
 }
