@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 4261e4c2c77b6c84e8685a852439a4d6
+guid: bf0680ed297ab6348b8732f2928b21ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7285376162372006033
-    second: Mage_0
-  - first:
-      213: 1377322663251520538
-    second: Mage_1
-  - first:
-      213: 2429379624658069490
-    second: Mage_2
-  - first:
-      213: -3092618186771702557
-    second: Mage_3
+      213: -6177480299499172682
+    second: Diana Raptor 4_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -92,7 +83,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -104,7 +95,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,85 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mage_0
+      name: Diana Raptor 4_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1
-        width: 15
-        height: 17
+        x: 16
+        y: 5
+        width: 41
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6fc7badaf425ea90800000000000000
-      internalID: -7285376162372006033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mage_1
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 1
-        width: 14
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1ca3343aab3d1310800000000000000
-      internalID: 1377322663251520538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mage_2
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 1
-        width: 15
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2f7e050b5e3e6b120800000000000000
-      internalID: 2429379624658069490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mage_3
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 1
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3ec5f8ff420d415d0800000000000000
-      internalID: -3092618186771702557
+      spriteID: 6bcc065b56e254aa0800000000000000
+      internalID: -6177480299499172682
       vertices: []
       indices: 
       edges: []
@@ -205,7 +133,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b670cfe69f1d59741a9845c45cb4b26a
     internalID: 0
     vertices: []
     indices: 
@@ -213,10 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mage_0: -7285376162372006033
-      Mage_1: 1377322663251520538
-      Mage_2: 2429379624658069490
-      Mage_3: -3092618186771702557
+      Diana Raptor 4_0: -6177480299499172682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

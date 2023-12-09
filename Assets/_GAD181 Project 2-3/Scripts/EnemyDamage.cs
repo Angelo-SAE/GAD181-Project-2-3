@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-  [SerializeField] private float damage;
+  [SerializeField] private float damage, pushForce;
   private GameObject player;
 
   void Start()
@@ -16,7 +16,8 @@ public class EnemyDamage : MonoBehaviour
     {
         if(col.gameObject.layer == 6)
         {
-          player.GetComponent<Player>().TakeDamage(damage);
+          Vector3 direction = col.gameObject.transform.position - transform.position;
+          player.GetComponent<Player>().TakeDamage(damage, direction, pushForce);
         }
     }
 }

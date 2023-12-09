@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public float movementSpeed, health;
+    public float movementSpeed, health, maxHealth;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private SpriteRenderer playerSprite;
-    [SerializeField] private GameObject deathMenu, pauseMenu;
+    [SerializeField] private GameObject deathMenu, pauseMenu, camera;
     private bool isPaused;
 
     void Awake()
@@ -35,17 +35,20 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-      rb2d.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, Input.GetAxisRaw("Vertical") * movementSpeed);
+      rb2d.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * movementSpeed;
     }
 
     private void Health()
     {
+      healthSlider.maxValue = maxHealth;
       health = Mathf.Clamp(health, 0, healthSlider.maxValue);
       healthSlider.value = health;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector3 direction, float pushForce)
     {
+      rb2d.AddForce(direction * pushForce);
+      StartCoroutine(camera.GetComponent<CameraShake>().ShakeScreen());
       health -= damage;
       playerSprite.color = new Color(0.67f, 0.1f, 0.1f);
       Invoke("ChangeColorBack", 0.1f);

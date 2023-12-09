@@ -207,3 +207,4 @@ MonoBehaviour:
   arrowDirection: {fileID: 6125372129776156719}
   arrowDamage: 0
   arrowSpeed: 0
+  pushForce: 1500

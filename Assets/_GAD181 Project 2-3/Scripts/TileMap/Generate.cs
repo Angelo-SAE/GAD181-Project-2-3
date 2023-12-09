@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Generate : MonoBehaviour
 {
-  [SerializeField] private GameObject player;
+  [SerializeField] private GameObject player, cameraCamera;
 
     void Awake()
     {
@@ -14,6 +14,7 @@ public class Generate : MonoBehaviour
     public void GenerateMap()
     {
       player.transform.position = new Vector2(0.5f,0.5f);
+      cameraCamera.transform.position = new Vector3(0.5f,0.5f, -10f);
       GenerateTilemap();
     }
 
@@ -35,6 +36,8 @@ public class Generate : MonoBehaviour
         HashSet<Vector2Int> spikePositions = GetComponent<SpikeGeneration>().GenerateSpike(floorPositions, wallPositions, objectPositions);
         GetComponent<TileMapPainter>().PaintSpikeTiles(spikePositions);
         objectPositions = AddToHashSet(objectPositions, spikePositions);
+        HashSet<Vector2Int> crossbowPositions = GetComponent<CrossBowTrapGeneration>().GenerateCrossbow(floorPositions, wallPositions, objectPositions);
+        objectPositions = AddToHashSet(objectPositions, crossbowPositions);
         GetComponent<EnemyGeneration>().GenerateEnemy(floorPositions, objectPositions);
         GetComponent<ExitLadder>().holeClosed = true;
       }
