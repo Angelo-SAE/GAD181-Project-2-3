@@ -8,7 +8,7 @@ public class ExitLadder : MonoBehaviour
   private bool interactable;
   [SerializeField] private GameObject winMenu;
   public Vector2Int holeOverlap;
-  public int roomsCleared;
+  public int roomsCleared, roomsToWin;
   public bool holeClosed;
 
 
@@ -37,7 +37,7 @@ public class ExitLadder : MonoBehaviour
 
     private void ExitMenu()
     {
-      if(EnemyCount.enemyCount <= 0 && roomsCleared == 2)
+      if(EnemyCount.enemyCount <= 0 && roomsCleared == roomsToWin)
       {
         GamePause.Pause();
         winMenu.SetActive(true);

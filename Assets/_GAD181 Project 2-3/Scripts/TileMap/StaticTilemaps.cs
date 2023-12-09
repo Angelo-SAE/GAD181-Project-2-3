@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticTilemaps : MonoBehaviour
+public static class StaticTilemaps
 {
     public static List<Vector2Int> cardinalDirections = new List<Vector2Int>
     {

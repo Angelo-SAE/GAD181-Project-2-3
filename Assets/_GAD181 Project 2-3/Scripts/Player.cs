@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float movementSpeed, health, maxHealth;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private SpriteRenderer playerSprite;
-    [SerializeField] private GameObject deathMenu, pauseMenu, camera;
+    [SerializeField] private GameObject deathMenu, pauseMenu, mainCamera;
     private bool isPaused;
 
     void Awake()
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage, Vector3 direction, float pushForce)
     {
       rb2d.AddForce(direction * pushForce);
-      StartCoroutine(camera.GetComponent<CameraShake>().ShakeScreen());
+      StartCoroutine(mainCamera.GetComponent<CameraShake>().ShakeScreen());
       health -= damage;
       playerSprite.color = new Color(0.67f, 0.1f, 0.1f);
       Invoke("ChangeColorBack", 0.1f);
