@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c3ac09803cd05b74cae51e9c88200850
+guid: 1068f5037ac54be4d91de4059da1b971
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8723620477910471915
-    second: ammo-rifle-alt 32px_0
+      213: -1527186399302858346
+    second: D02W0wpXcAATrhQ_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -83,18 +83,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ammo-rifle-alt 32px_0
+      name: D02W0wpXcAATrhQ_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 4
-        width: 22
-        height: 23
+        x: 0
+        y: 0
+        width: 640
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51ba2d225697fe680800000000000000
-      internalID: -8723620477910471915
+      spriteID: 699cebbaf085ecae0800000000000000
+      internalID: -1527186399302858346
       vertices: []
       indices: 
       edges: []
@@ -140,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ammo-rifle-alt 32px_0: -8723620477910471915
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
