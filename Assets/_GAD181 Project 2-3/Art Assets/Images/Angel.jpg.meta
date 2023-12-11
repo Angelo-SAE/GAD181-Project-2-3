@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4022d1c32f026b844a594ba0acc590a5
+guid: 3675de049e2d1d54e9320e27837d1cd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8006915136049050759
-    second: red-color-solid-background-1920x1080_0
+      213: 794005853264362711
+    second: Angel_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red-color-solid-background-1920x1080_0
+      name: Angel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1920
-        height: 1080
+        height: 1205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97b09113b19b1e090800000000000000
-      internalID: -8006915136049050759
+      spriteID: 7dc3761ed10e40b00800000000000000
+      internalID: 794005853264362711
       vertices: []
       indices: 
       edges: []
@@ -128,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      red-color-solid-background-1920x1080_0: -8006915136049050759
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
