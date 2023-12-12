@@ -62,8 +62,8 @@ public class Gun : MonoBehaviour
       {
         Quaternion rotation = Quaternion.Euler(new Vector3(gunPosition.transform.rotation.x, gunPosition.transform.rotation.y, angle + (bulletAmount * 6) - (a * 6) - (bulletAmount * 2)));
         GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), rotation, bulletStorage.transform);
+        shotBullet.GetComponent<BulletDamage>().damage = bulletDamage;
         shotBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
-        shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
         shotBullet.GetComponent<Bullet>().ShootBullet();
       }
     } else if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount <= 0 && !reloading)

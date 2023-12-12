@@ -47,10 +47,10 @@ public class OpenChestMenu : MonoBehaviour
           if(a == 0)
           {
             card1 = Instantiate(tempCards[rand], card1Storage.transform.position, tempCards[rand].transform.localRotation, card1Storage.transform);
-            chestPanel.GetComponent<CardSelection>().card1 = card1;
+            chestPanel.GetComponent<ChestClose>().card1 = card1;
           } else {
             card2 = Instantiate(tempCards[rand], card2Storage.transform.position, tempCards[rand].transform.localRotation, card2Storage.transform);
-            chestPanel.GetComponent<CardSelection>().card2 = card2;
+            chestPanel.GetComponent<ChestClose>().card2 = card2;
           }
           tempCards.RemoveAt(rand);
         }
