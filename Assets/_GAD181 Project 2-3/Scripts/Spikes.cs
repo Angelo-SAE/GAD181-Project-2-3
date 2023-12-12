@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
 
-  [SerializeField] private float damage;
+  [SerializeField] private int damage;
   private GameObject player;
 
   void Start()

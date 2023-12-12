@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
-  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
+  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground, ammoWarning;
   public float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
-  [SerializeField] private Slider delayTimer, ammoSlider;
+  [SerializeField] private Slider delayTimer, ammoSlider, maxAmmoSlider;
   public int ammoCount, maxAmmo;
   private bool readyToShoot = true, reloading;
   private float angle, scaleX;
@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     {
       angle = GunLooking();
       GunShooting();
+      AmmoMaxUpdate();
     }
   }
 
@@ -65,6 +66,9 @@ public class Gun : MonoBehaviour
         shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
         shotBullet.GetComponent<Bullet>().ShootBullet();
       }
+    } else if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount <= 0 && !reloading)
+    {
+      ammoWarning.SetActive(true);
     }
 
     if(Input.GetButtonDown("Reload") && !reloading)
@@ -97,5 +101,10 @@ public class Gun : MonoBehaviour
     }
     reloading = false;
     reloadingBackground.SetActive(false);
+  }
+
+  private void AmmoMaxUpdate()
+  {
+    maxAmmoSlider.value = maxAmmo;
   }
 }
