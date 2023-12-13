@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
-  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground;
+  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground, ammoWarning;
   public float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
-  [SerializeField] private Slider delayTimer, ammoSlider;
+  [SerializeField] private Slider delayTimer, ammoSlider, maxAmmoSlider;
   public int ammoCount, maxAmmo;
   private bool readyToShoot = true, reloading;
   private float angle, scaleX;
@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     {
       angle = GunLooking();
       GunShooting();
+      AmmoMaxUpdate();
     }
   }
 
@@ -61,10 +62,13 @@ public class Gun : MonoBehaviour
       {
         Quaternion rotation = Quaternion.Euler(new Vector3(gunPosition.transform.rotation.x, gunPosition.transform.rotation.y, angle + (bulletAmount * 6) - (a * 6) - (bulletAmount * 2)));
         GameObject shotBullet = Instantiate(bullet, new Vector3(gunTip.position.x, gunTip.position.y, gunTip.position.z + 0.01f), rotation, bulletStorage.transform);
+        shotBullet.GetComponent<BulletDamage>().damage = bulletDamage;
         shotBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
-        shotBullet.GetComponent<Bullet>().bulletDamage = bulletDamage;
         shotBullet.GetComponent<Bullet>().ShootBullet();
       }
+    } else if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount <= 0 && !reloading)
+    {
+      ammoWarning.SetActive(true);
     }
 
     if(Input.GetButtonDown("Reload") && !reloading)
@@ -97,5 +101,10 @@ public class Gun : MonoBehaviour
     }
     reloading = false;
     reloadingBackground.SetActive(false);
+  }
+
+  private void AmmoMaxUpdate()
+  {
+    maxAmmoSlider.value = maxAmmo;
   }
 }

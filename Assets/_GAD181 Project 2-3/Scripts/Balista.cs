@@ -5,7 +5,8 @@ using UnityEngine;
 public class Balista : MonoBehaviour
 {
   [SerializeField] private GameObject arrow;
-  [SerializeField] private float arrowDamage, arrowSpeed;
+  [SerializeField] private float arrowSpeed;
+  [SerializeField] private int arrowDamage;
 
 
     void Start()

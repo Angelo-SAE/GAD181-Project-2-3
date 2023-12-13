@@ -11,6 +11,14 @@ public class Generate : MonoBehaviour
       GenerateMap();
     }
 
+    void Update()
+    {
+      if(Input.GetKeyDown(KeyCode.L))
+      {
+        GenerateMap();
+      }
+    }
+
     public void GenerateMap()
     {
       player.transform.position = new Vector2(0.5f,0.5f);

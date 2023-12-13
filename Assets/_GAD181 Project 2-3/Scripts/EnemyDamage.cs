@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-  [SerializeField] private float damage, pushForce;
+  [SerializeField] private float pushForce;
+  [SerializeField] private int damage;
   private GameObject player;
 
   void Start()

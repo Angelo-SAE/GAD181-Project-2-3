@@ -6,7 +6,8 @@ public class BalistaArrow : MonoBehaviour
 {
 
   [SerializeField] private GameObject arrowDirection;
-  public float arrowDamage, arrowSpeed, pushForce;
+  public float arrowSpeed, pushForce;
+  public int arrowDamage;
 
   public void ShootArrow()
   {
