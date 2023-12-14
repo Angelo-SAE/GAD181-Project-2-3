@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed;
-    public float AttackRange;
+    [SerializeField] private float movementSpeed, AttackRange, seeAhead;
     private GameObject player;
     private Rigidbody2D rb2d;
     public bool active;
@@ -41,16 +40,18 @@ public class Enemy : MonoBehaviour
     private void MoveTowardsPlayer()
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        rb2d.velocity = direction * movementSpeed;
 
-        bool collisionAhead1 = Physics2D.Raycast(transform.position, (player.transform.position - topRight.transform.position).normalized, 2f, 1 << 9);
-        bool collisionAhead2 = Physics2D.Raycast(transform.position, (player.transform.position - topLeft.transform.position).normalized, 2f, 1 << 9);
-        bool collisionAhead3 = Physics2D.Raycast(transform.position, (player.transform.position - bottomRight.transform.position).normalized, 2f, 1 << 9);
-        bool collisionAhead4 = Physics2D.Raycast(transform.position, (player.transform.position - bottomLeft.transform.position).normalized, 2f, 1 << 9);
-        if(collisionAhead1 || collisionAhead2 || collisionAhead3 || collisionAhead4)
-        {
-          rb2d.velocity = FindPath(direction) * movementSpeed;
-        }
+        bool collisionAhead = Physics2D.Raycast(transform.position, direction, seeAhead, 1 << 9);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, seeAhead + 1f, 1 << 7);
+
+        //if(collisionAhead)
+        //{
+        //  rb2d.velocity = FindPath(direction) * movementSpeed;
+        //} else {
+        //  rb2d.velocity = direction * movementSpeed;
+        //}
+
+        rb2d.velocity = direction * movementSpeed;
 
         if(rb2d.velocity.x > 0)
         {
@@ -71,18 +72,20 @@ public class Enemy : MonoBehaviour
 
         if(!turn)
         {
-          return Quaternion.AngleAxis(50, Vector3.forward) * direction;
+          return Quaternion.AngleAxis(a + 50, Vector3.forward) * direction;
         } else {
           direction = Quaternion.AngleAxis(-a, Vector3.forward) * currDirection;
           turn = Physics2D.Raycast(transform.position, direction, 1.5f, 1 << 9);
           if(!turn)
           {
-            return Quaternion.AngleAxis(-50, Vector3.forward) * direction;
+            return Quaternion.AngleAxis(a - 50, Vector3.forward) * direction;
           }
         }
         a += 5;
       }
       return direction;
     }
+
+
 
 }

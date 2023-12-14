@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public AudioSource Death;
     private bool alive;
     [SerializeField] private SpriteRenderer enemySprite;
+    [SerializeField] private GameObject heartPickup;
 
 
 
@@ -35,6 +36,11 @@ public class EnemyHealth : MonoBehaviour
           alive = false;
           EnemyCount.enemyCount--;
           Instantiate(Death);
+          int a = Random.Range(0, 100 + 1);
+          if(a > 50)
+          {
+            Instantiate(heartPickup, gameObject.transform.position, gameObject.transform.rotation);
+          }
           Destroy(gameObject);
         }
 
@@ -49,6 +55,11 @@ public class EnemyHealth : MonoBehaviour
           alive = false;
           EnemyCount.enemyCount--;
           Instantiate(Death);
+          int a = Random.Range(0, 100 + 1);
+          if(a > 50)
+          {
+            Instantiate(heartPickup, gameObject.transform.position, gameObject.transform.rotation);
+          }
           Destroy(gameObject);
         }
       }

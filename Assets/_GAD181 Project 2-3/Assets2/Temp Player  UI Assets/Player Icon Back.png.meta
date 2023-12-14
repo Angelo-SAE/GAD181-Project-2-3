@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 90b355e3c1e4e9f41adf74ae0285da47
+guid: 935831a30c77ad2419fca945a2457d9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1525137185970434187
-    second: ShotDelayTimer_0
+      213: -8436252118441928156
+    second: Player Icon Back_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -94,17 +94,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShotDelayTimer_0
+      name: Player Icon Back_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 3
-        width: 486
-        height: 486
+        x: 0
+        y: 110
+        width: 503
+        height: 390
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b80b18ba0306a2510800000000000000
-      internalID: 1525137185970434187
+      spriteID: 42ad1ac35696cea80800000000000000
+      internalID: -8436252118441928156
       vertices: []
       indices: 
       edges: []
@@ -129,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShotDelayTimer_0: 1525137185970434187
+      Player Icon Back_0: -8436252118441928156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

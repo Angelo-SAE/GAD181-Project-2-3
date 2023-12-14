@@ -17,25 +17,29 @@ public class ChestGeneration : MonoBehaviour
         {
           foreach(Vector2Int direction in StaticTilemaps.cardinalDirections)
           {
-            if(wallPositions.Contains(chestPosition + direction) && objectPositions.Contains(chestPosition + direction))
+            if(wallPositions.Contains(chestPosition + direction) || objectPositions.Contains(chestPosition + direction))
             {
               b++;
             }
           }
           foreach(Vector2Int direction in StaticTilemaps.diagionalDirections)
           {
-            if(wallPositions.Contains(chestPosition + direction) && objectPositions.Contains(chestPosition + direction))
+            if(wallPositions.Contains(chestPosition + direction) || objectPositions.Contains(chestPosition + direction))
             {
               c++;
             }
           }
-          if(b == 0 && c < 2)
-          {
-            a++;
-          } else if(b < 2 && c == 0)
+          if(b < 2 && c == 0)
           {
             a++;
           }
+          //if(b == 0 && c < 2)
+          //{
+          //  a++;
+          //} else if(b < 2 && c == 0)
+          //{
+          //  a++;
+          //}
         }
       }
       return chestPosition;

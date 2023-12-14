@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 90b355e3c1e4e9f41adf74ae0285da47
+guid: 879ae848ab2bb7848a52b358041d0509
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1525137185970434187
-    second: ShotDelayTimer_0
+      213: -3493037513662529940
+    second: Single_Heart_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShotDelayTimer_0
+      name: Single_Heart_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 3
-        width: 486
-        height: 486
+        x: 0
+        y: 0
+        width: 10
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b80b18ba0306a2510800000000000000
-      internalID: 1525137185970434187
+      spriteID: c6ef70363ec368fc0800000000000000
+      internalID: -3493037513662529940
       vertices: []
       indices: 
       edges: []
@@ -121,7 +121,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShotDelayTimer_0: 1525137185970434187
+      Single_Heart_0: -3493037513662529940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

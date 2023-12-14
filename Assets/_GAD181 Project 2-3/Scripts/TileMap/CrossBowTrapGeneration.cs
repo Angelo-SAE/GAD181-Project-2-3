@@ -88,60 +88,63 @@ public class CrossBowTrapGeneration : MonoBehaviour
             direction2++;
           }
 
-          if(dDirectionAmount != 4 && cObj == 0)
+          if(dDirectionAmount == 0)
           {
-            if(cDirectionAmount == 1)
+            if(dDirectionAmount != 4 && cObj == 0)
             {
-              if(n && !sE && !sW)
+              if(cDirectionAmount == 1)
               {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 270f), CrossbowTrapHolder.transform);
+                if(n && !sE && !sW)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 270f), CrossbowTrapHolder.transform);
+                }
+                if(e && !sW && !nW)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 180f), CrossbowTrapHolder.transform);
+                }
+                if(s && !nW && !nE)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 90f), CrossbowTrapHolder.transform);
+                }
+                if(w && !nE && !sE)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 0f), CrossbowTrapHolder.transform);
+                }
               }
-              if(e && !sW && !nW)
+              if(cDirectionAmount == 2)
               {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 180f), CrossbowTrapHolder.transform);
-              }
-              if(s && !nW && !nE)
-              {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 90f), CrossbowTrapHolder.transform);
-              }
-              if(w && !nE && !sE)
-              {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 0f), CrossbowTrapHolder.transform);
-              }
-            }
-            if(cDirectionAmount == 2)
-            {
-              if(n && e && !sW)
-              {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 270f), CrossbowTrapHolder.transform);
-              }
-              if(e && s && !nW)
-              {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 180f), CrossbowTrapHolder.transform);
-              }
-              if(s && w && !nE)
-              {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 90f), CrossbowTrapHolder.transform);
-              }
-              if(w && n && !sE)
-              {
-                a--;
-                objectPositions.Add(trapPosition);
-                Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 0f), CrossbowTrapHolder.transform);
+                if(n && e && !sW)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 270f), CrossbowTrapHolder.transform);
+                }
+                if(e && s && !nW)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 180f), CrossbowTrapHolder.transform);
+                }
+                if(s && w && !nE)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 90f), CrossbowTrapHolder.transform);
+                }
+                if(w && n && !sE)
+                {
+                  a--;
+                  objectPositions.Add(trapPosition);
+                  Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 0f), CrossbowTrapHolder.transform);
+                }
               }
             }
           }
