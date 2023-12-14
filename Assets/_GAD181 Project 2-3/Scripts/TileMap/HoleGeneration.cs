@@ -29,13 +29,19 @@ public class HoleGeneration : MonoBehaviour
             c++;
           }
         }
-        if(b == 0 && c < 2)
-        {
-          a++;
-        } else if(b < 2 && c == 0)
+
+        if(b < 2 && c == 0)
         {
           a++;
         }
+        
+        //if(b == 0 && c < 2)
+        //{
+        //  a++;
+        //} else if(b < 2 && c == 0)
+        //{
+        //  a++;
+        //}
       }
     }
     return holePosition;

@@ -711,6 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   AttackRange: 3
+  seeAhead: 2
   active: 0
   enemyAnimator: {fileID: 9159294928637456783}
   topRight: {fileID: 1260122906644631147}
@@ -730,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 7870344225822601520}
-  maxHealth: 300
+  maxHealth: 200
   Death: {fileID: 2164998751768511594, guid: 32d3d632404efa745b68cee0980051fa, type: 3}
   enemySprite: {fileID: 7624701340826510775}
 --- !u!114 &5995816831911187088

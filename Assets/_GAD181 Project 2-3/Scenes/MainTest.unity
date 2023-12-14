@@ -182,7 +182,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.05
+  m_FillAmount: 0.083333336
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 120
   m_WholeNumbers: 1
-  m_Value: 6
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3588,8 +3588,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySmall: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
   enemyBig: {fileID: 0}
-  enemyMin: 5
-  enemyMax: 8
+  enemyMin: 3
+  enemyMax: 5
 --- !u!114 &868910145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7672,8 +7672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
-  health: 6
-  maxHealth: 6
+  health: 15
+  maxHealth: 15
   healthSlider: {fileID: 1791525799}
   maxHealthSlider: {fileID: 2004839444}
   playerSprite: {fileID: 2015614637}
@@ -7717,14 +7717,14 @@ MonoBehaviour:
   ammoWarning: {fileID: 1043433414}
   attackSpeed: 0.5
   reloadSpeed: 1
-  bulletDamage: 500
+  bulletDamage: 40
   bulletAmount: 1
   bulletSpeed: 15
   delayTimer: {fileID: 1639340869}
   ammoSlider: {fileID: 331915096}
   maxAmmoSlider: {fileID: 1890491400}
-  ammoCount: 6
-  maxAmmo: 6
+  ammoCount: 10
+  maxAmmo: 10
 --- !u!50 &1986840086
 Rigidbody2D:
   serializedVersion: 4
@@ -7889,7 +7889,7 @@ GameObject:
   - component: {fileID: 2015614638}
   m_Layer: 6
   m_Name: Player Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

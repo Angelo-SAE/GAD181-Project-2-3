@@ -33,15 +33,20 @@ public class SpikeGeneration : MonoBehaviour
                 c++;
               }
             }
-            if(b == 0 && c < 2)
-            {
-              spikePositions.Add(spikePosition);
-              a++;
-            } else if(b < 2 && c == 0)
+            if(b < 2 && c == 0)
             {
               spikePositions.Add(spikePosition);
               a++;
             }
+            //if(b == 0 && c < 2)
+            //{
+            //  spikePositions.Add(spikePosition);
+            //  a++;
+            //} else if(b < 2 && c == 0)
+            //{
+            //  spikePositions.Add(spikePosition);
+            //  a++;
+            //}
           }
         }
       }
