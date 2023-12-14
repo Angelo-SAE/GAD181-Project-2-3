@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 90b355e3c1e4e9f41adf74ae0285da47
+guid: 4b9f45256a69b0f459d66096578cd6ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1525137185970434187
-    second: ShotDelayTimer_0
+      213: 5910064415468388587
+    second: Player Health Bar_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShotDelayTimer_0
+      name: Player Health Bar_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 3
-        width: 486
-        height: 486
+        x: 436
+        y: 327
+        width: 1224
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b80b18ba0306a2510800000000000000
-      internalID: 1525137185970434187
+      spriteID: be08ba3e544c40250800000000000000
+      internalID: 5910064415468388587
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShotDelayTimer_0: 1525137185970434187
+      Player Health Bar_0: 5910064415468388587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
