@@ -17,7 +17,7 @@ public class SpikeGeneration : MonoBehaviour
           Vector2Int spikePosition = floorPositions.ElementAt(Random.Range(0,floorPositions.Count));
           int b = 0;
           int c = 0;
-          if(!objectPositions.Contains(spikePosition) && spikePosition != new Vector2Int(1, 1))
+          if(!objectPositions.Contains(spikePosition) || spikePosition != new Vector2Int(1, 1))
           {
             foreach(Vector2Int direction in StaticTilemaps.cardinalDirections)
             {
@@ -28,7 +28,7 @@ public class SpikeGeneration : MonoBehaviour
             }
             foreach(Vector2Int direction in StaticTilemaps.diagionalDirections)
             {
-              if(wallPositions.Contains(spikePosition + direction) && objectPositions.Contains(spikePosition + direction))
+              if(wallPositions.Contains(spikePosition + direction) || objectPositions.Contains(spikePosition + direction))
               {
                 c++;
               }

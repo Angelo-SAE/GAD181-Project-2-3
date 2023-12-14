@@ -88,7 +88,7 @@ public class CrossBowTrapGeneration : MonoBehaviour
             direction2++;
           }
 
-          if(dDirectionAmount !> 0)
+          if(dDirectionAmount == 0)
           {
             if(dDirectionAmount != 4 && cObj == 0)
             {

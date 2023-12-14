@@ -34,7 +34,7 @@ public class HoleGeneration : MonoBehaviour
         {
           a++;
         }
-        
+
         //if(b == 0 && c < 2)
         //{
         //  a++;
