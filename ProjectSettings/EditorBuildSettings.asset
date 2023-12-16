@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/_GAD181 Project 2-3/Scenes/MainMenu.unity
     guid: 745a6e9e544a2b84a84e31817517d10a
   - enabled: 1
-    path: Assets/_GAD181 Project 2-3/Scenes/Story-1.unity
-    guid: 9612dde0f0721644ea9f95cd81a12e81
-  - enabled: 1
     path: Assets/_GAD181 Project 2-3/Scenes/Story-2.unity
     guid: 9df3114db6f97974b9e094f428668c89
+  - enabled: 1
+    path: Assets/_GAD181 Project 2-3/Scenes/Story-1.unity
+    guid: 9612dde0f0721644ea9f95cd81a12e81
   - enabled: 1
     path: Assets/_GAD181 Project 2-3/Scenes/Story-3.unity
     guid: c1b1c2ae868a8614e9b283344e1d121f

@@ -671,6 +671,7 @@ GameObject:
   - component: {fileID: 406568582252257004}
   - component: {fileID: 7847504169918801242}
   - component: {fileID: 5995816831911187088}
+  - component: {fileID: -8453393020915378252}
   - component: {fileID: 7426461290457382015}
   m_Layer: 8
   m_Name: Runner Enemy
@@ -749,6 +750,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 2000
   damage: 1
+--- !u!114 &-8453393020915378252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634736829206214511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342b642900e834745a7522d7ca2f837f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  switchPath: 1.5
 --- !u!50 &7426461290457382015
 Rigidbody2D:
   serializedVersion: 4

@@ -4,39 +4,40 @@ using UnityEngine;
 
 public class Roam : MonoBehaviour
 {
-    public float moveSpeed = 2f; 
+    public float moveSpeed = 2f;
     private Vector2 currentDirection;
     private float timer = 0f;
-    public float switchPath = 2f; 
+    public float switchPath = 2f;
 
     void Start()
     {
-        
+
         SetRandomDirection();
     }
 
     void Update()
     {
+      if(!GetComponent<Enemy>().active)
+      {
         timer += Time.deltaTime;
 
         if (timer >= switchPath)
         {
-            
+
             SetRandomDirection();
             timer = 0f;
         }
 
-       
         transform.Translate(currentDirection * moveSpeed * Time.deltaTime);
+      }  
     }
 
     void SetRandomDirection()
     {
-       
+
         float randomAngle = Random.Range(0f, 2f * Mathf.PI);
 
-        
+
         currentDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
     }
 }
-
