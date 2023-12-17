@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
-  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground, ammoWarning;
+  [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground, ammoWarning, bulletSound;
   public float attackSpeed, reloadSpeed, bulletDamage, bulletSpeed;
   [SerializeField] private Slider delayTimer, ammoSlider, maxAmmoSlider;
   public int ammoCount, maxAmmo, bulletAmount;
@@ -66,6 +66,7 @@ public class Gun : MonoBehaviour
         shotBullet.GetComponent<BulletDamage>().damage = bulletDamage;
         shotBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
         shotBullet.GetComponent<Bullet>().ShootBullet();
+        Instantiate(bulletSound);
       }
     } else if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount <= 0 && !reloading)
     {

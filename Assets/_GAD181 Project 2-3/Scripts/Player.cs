@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         {
           pAnimator.SetBool("Moving", false);
           t += Time.deltaTime;
-          if(t > 10f)
+          if(t > 5f)
           {
             pAnimator.SetTrigger("Sit");
           }

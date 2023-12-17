@@ -5,6 +5,8 @@ using UnityEngine;
 public class Generate : MonoBehaviour
 {
   [SerializeField] private GameObject player, cameraCamera;
+  private GameObject enemyHolder, heartHolder;
+
 
     void Awake()
     {
@@ -46,7 +48,14 @@ public class Generate : MonoBehaviour
         objectPositions = AddToHashSet(objectPositions, spikePositions);
         HashSet<Vector2Int> crossbowPositions = GetComponent<CrossBowTrapGeneration>().GenerateCrossbow(floorPositions, wallPositions, objectPositions);
         objectPositions = AddToHashSet(objectPositions, crossbowPositions);
-        GetComponent<EnemyGeneration>().GenerateEnemy(floorPositions, objectPositions);
+        if(enemyHolder != null)
+        {
+          Destroy(enemyHolder);
+          Destroy(heartHolder);
+        }
+        enemyHolder = new GameObject("Enemy Holder");
+        heartHolder = new GameObject("Heart Holder");
+        GetComponent<EnemyGeneration>().GenerateEnemy(floorPositions, objectPositions, enemyHolder, heartHolder);
         GetComponent<ExitLadder>().holeClosed = true;
       }
 
