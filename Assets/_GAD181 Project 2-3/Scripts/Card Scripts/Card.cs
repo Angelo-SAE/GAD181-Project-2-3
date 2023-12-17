@@ -42,6 +42,7 @@ public class Card : MonoBehaviour
       if(whichCard == 5)
       {
         player.GetComponent<Player>().maxHealth += 1;
+        player.GetComponent<Player>().health++;
         player.GetComponent<Player>().healthIncrease++;
       }
       if(whichCard == 6)
