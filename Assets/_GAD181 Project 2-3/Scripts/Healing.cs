@@ -23,8 +23,7 @@ public class Healing : MonoBehaviour
 
     private void RegenHealth()
     {
+        player.GetComponent<Player>().PlayerHealed();
         player.GetComponent<Player>().health += healthGain;
-
-       
     }
 }

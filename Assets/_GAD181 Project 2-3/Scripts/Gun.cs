@@ -7,9 +7,9 @@ public class Gun : MonoBehaviour
 {
   [SerializeField] private Transform gunPosition, gunTip;
   [SerializeField] private GameObject bullet, bulletStorage, reloadingBackground, ammoWarning;
-  public float attackSpeed, reloadSpeed, bulletDamage, bulletAmount, bulletSpeed;
+  public float attackSpeed, reloadSpeed, bulletDamage, bulletSpeed;
   [SerializeField] private Slider delayTimer, ammoSlider, maxAmmoSlider;
-  public int ammoCount, maxAmmo;
+  public int ammoCount, maxAmmo, bulletAmount;
   private bool readyToShoot = true, reloading;
   private float angle, scaleX;
 
@@ -54,8 +54,9 @@ public class Gun : MonoBehaviour
   {
     if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount > 0 && !reloading)
     {
-      ammoCount--;
-      ammoSlider.value -= 1;
+      ammoCount -= bulletAmount;
+      ammoCount = Mathf.Clamp(ammoCount, 0, maxAmmo);
+      ammoSlider.value = Mathf.Clamp(ammoCount, 0, maxAmmo);
       StartCoroutine(ShootingDelay());
       readyToShoot = false;
       for(float a = bulletAmount; a > 0; a--)
