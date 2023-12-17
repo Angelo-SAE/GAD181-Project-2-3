@@ -17,6 +17,7 @@ public class CrossBowTrapGeneration : MonoBehaviour
       }
       CrossbowTrapHolder = new GameObject("CrossbowTrapHolder");
       HashSet<Vector2Int> crossbowPositions = new HashSet<Vector2Int>();
+      int l = 0;
       for(int a = trapAmount; a > 0;)
       {
         Vector2Int trapPosition = floorPositions.ElementAt(Random.Range(0,floorPositions.Count));
@@ -146,6 +147,13 @@ public class CrossBowTrapGeneration : MonoBehaviour
                   Instantiate(crossbowTrap, new Vector3(trapPosition.x + 0.5f, trapPosition.y + 0.5f, crossbowTrap.transform.position.z), Quaternion.Euler(0f, 0f, 0f), CrossbowTrapHolder.transform);
                 }
               }
+            }
+          } else {
+            if(l == 100)
+            {
+              a = 0;
+            } else {
+              l++;
             }
           }
         }

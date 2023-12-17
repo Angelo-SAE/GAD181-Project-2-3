@@ -13,6 +13,6 @@ public class FloorDisplay : MonoBehaviour
 
   private void SetFloorNumber()
   {
-    GetComponent<TMP_Text>().text = (floorCountObject.GetComponent<ExitLadder>().roomsCleared + 1).ToString();
+    GetComponent<TMP_Text>().text = (floorCountObject.GetComponent<ExitLadder>().roomsCleared + 1).ToString() + "/" + (floorCountObject.GetComponent<ExitLadder>().roomsToWin + 1).ToString();
   }
 }

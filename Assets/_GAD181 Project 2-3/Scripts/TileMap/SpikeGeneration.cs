@@ -12,7 +12,7 @@ public class SpikeGeneration : MonoBehaviour
       HashSet<Vector2Int> spikePositions = new HashSet<Vector2Int>();
       for(int k = spikeAmount; k > 0; k--)
       {
-        for(int a = 0; a < 1;)
+        for(int a = 0; a < 100; a++)
         {
           Vector2Int spikePosition = floorPositions.ElementAt(Random.Range(0,floorPositions.Count));
           int b = 0;
@@ -36,7 +36,7 @@ public class SpikeGeneration : MonoBehaviour
             if(b < 2 && c == 0)
             {
               spikePositions.Add(spikePosition);
-              a++;
+              a = 100;
             }
             //if(b == 0 && c < 2)
             //{
