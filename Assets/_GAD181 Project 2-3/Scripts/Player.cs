@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private Animator pAnimator;
     private bool isPaused;
     private float t;
+    public int healthIncrease, ammoIncrease, damageIncrease, fireRateIncrease, bulletAmountIncrease, reloadSpeedIncrease, movementSpeedIncrease;
 
     void Awake()
     {
