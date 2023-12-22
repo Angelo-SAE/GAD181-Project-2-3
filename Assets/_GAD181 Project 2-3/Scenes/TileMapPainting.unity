@@ -900,9 +900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a6a03c29b0d594caa7dda96b4f5574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card1: {fileID: 0}
-  card2: {fileID: 0}
-  selectButton: {fileID: 887101122}
 --- !u!114 &122508623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,10 +1321,18 @@ MonoBehaviour:
   health: 300
   maxHealth: 300
   healthSlider: {fileID: 740771960}
+  maxHealthSlider: {fileID: 0}
   playerSprite: {fileID: 1008051136}
   deathMenu: {fileID: 131393512}
   pauseMenu: {fileID: 1364848489}
-  camera: {fileID: 1940099946}
+  mainCamera: {fileID: 0}
+  healthIncrease: 0
+  ammoIncrease: 0
+  damageIncrease: 0
+  fireRateIncrease: 0
+  bulletAmountIncrease: 0
+  reloadSpeedIncrease: 0
+  movementSpeedIncrease: 0
 --- !u!4 &272162921
 Transform:
   m_ObjectHideFlags: 0
@@ -1362,15 +1367,18 @@ MonoBehaviour:
   bullet: {fileID: 213320238411828574, guid: 773f4e3fa631b7a409747cce4e928bbd, type: 3}
   bulletStorage: {fileID: 91346452}
   reloadingBackground: {fileID: 2041217868}
+  ammoWarning: {fileID: 0}
+  bulletSound: {fileID: 0}
   attackSpeed: 0.5
   reloadSpeed: 1
   bulletDamage: 30
-  bulletAmount: 1
   bulletSpeed: 15
   delayTimer: {fileID: 1508442238}
   ammoSlider: {fileID: 716970083}
+  maxAmmoSlider: {fileID: 0}
   ammoCount: 6
   maxAmmo: 6
+  bulletAmount: 1
 --- !u!50 &272162923
 Rigidbody2D:
   serializedVersion: 4
@@ -1516,6 +1524,7 @@ MonoBehaviour:
   winMenu: {fileID: 91586615}
   holeOverlap: {x: 0, y: 0}
   roomsCleared: 0
+  roomsToWin: 0
   holeClosed: 0
 --- !u!114 &327369279
 MonoBehaviour:
@@ -1554,6 +1563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySmall: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
   enemyBig: {fileID: 0}
+  enemyMin: 0
+  enemyMax: 0
 --- !u!114 &327369281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2244,7 +2255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 272162919}
-  cameraSpeed: 10
 --- !u!1 &430333660
 GameObject:
   m_ObjectHideFlags: 0

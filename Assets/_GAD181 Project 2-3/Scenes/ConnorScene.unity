@@ -1932,12 +1932,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
       insertIndex: -1
       addedObject: {fileID: 541557606}
-    - targetCorrespondingSourceObject: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 541557605}
-    - targetCorrespondingSourceObject: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 541557604}
   m_SourcePrefab: {fileID: 100100000, guid: f1dc443217f623e478550d2d47648387, type: 3}
 --- !u!1 &541557602 stripped
 GameObject:
@@ -1949,35 +1943,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3386275648557926897, guid: f1dc443217f623e478550d2d47648387, type: 3}
   m_PrefabInstance: {fileID: 541557601}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &541557604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541557602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342b642900e834745a7522d7ca2f837f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  switchPath: 2
---- !u!114 &541557605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541557602}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dcdb787e919ab48b9a2d288d7e6b08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 213320238411828574, guid: 99c51775ea18a8945815ad331f0ff2aa, type: 3}
-  BulletStart: {fileID: 541557603}
-  Rate: 1
 --- !u!114 &541557606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1985,7 +1950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541557602}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d3a5317057de34b915b8b81b4fc4e5, type: 3}
   m_Name: 
@@ -2203,6 +2168,13 @@ MonoBehaviour:
   deathMenu: {fileID: 867679244}
   pauseMenu: {fileID: 1854012064}
   mainCamera: {fileID: 944190519}
+  healthIncrease: 0
+  ammoIncrease: 0
+  damageIncrease: 0
+  fireRateIncrease: 0
+  bulletAmountIncrease: 0
+  reloadSpeedIncrease: 0
+  movementSpeedIncrease: 0
 --- !u!4 &563871416
 Transform:
   m_ObjectHideFlags: 0
@@ -2238,16 +2210,17 @@ MonoBehaviour:
   bulletStorage: {fileID: 576276122}
   reloadingBackground: {fileID: 394684976}
   ammoWarning: {fileID: 1601809771}
+  bulletSound: {fileID: 0}
   attackSpeed: 0.5
   reloadSpeed: 1
   bulletDamage: 40
-  bulletAmount: 1
   bulletSpeed: 15
   delayTimer: {fileID: 530085182}
   ammoSlider: {fileID: 1250412617}
   maxAmmoSlider: {fileID: 57149221}
   ammoCount: 10
   maxAmmo: 10
+  bulletAmount: 1
 --- !u!50 &563871418
 Rigidbody2D:
   serializedVersion: 4
@@ -6100,7 +6073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 563871414}
-  cameraSpeed: 10
 --- !u!1 &1489067877
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,19 +6,20 @@ public class Generate : MonoBehaviour
 {
   [SerializeField] private GameObject player, cameraCamera;
   private GameObject enemyHolder, heartHolder;
+  [SerializeField] private bool generateMap;
 
 
     void Awake()
     {
-      GenerateMap();
+      if(generateMap)
+      {
+        GenerateMap();
+      }
     }
 
     void Update()
     {
-      if(Input.GetKeyDown(KeyCode.L))
-      {
-        GenerateMap();
-      }
+      
     }
 
     public void GenerateMap()
