@@ -8174,6 +8174,8 @@ GameObject:
   - component: {fileID: 1130182543}
   - component: {fileID: 1130182542}
   - component: {fileID: 1130182545}
+  - component: {fileID: 1130182546}
+  - component: {fileID: 1130182547}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -8277,7 +8279,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130182541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82c5b63414bd4f94c91147bc9c22a8e9, type: 3}
   m_Name: 
@@ -8285,6 +8287,38 @@ MonoBehaviour:
   moveSpeed: 5
   Spawn: {fileID: 8634736829206214511, guid: f1dc443217f623e478550d2d47648387, type: 3}
   spawnCooldown: 3
+--- !u!114 &1130182546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130182541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d3a5317057de34b915b8b81b4fc4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1225118172}
+  bulletPrefab: {fileID: 0}
+  ShootStart: {fileID: 1082368141892248043, guid: 773f4e3fa631b7a409747cce4e928bbd, type: 3}
+  Rate: 2
+--- !u!114 &1130182547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130182541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7577f5f43f016774cba8960bdae05ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1225118172}
+  projectilePrefab: {fileID: 213320238411828574, guid: 773f4e3fa631b7a409747cce4e928bbd, type: 3}
+  projectileSpeed: 5
+  rotationSpeed: 2
 --- !u!1 &1131343594
 GameObject:
   m_ObjectHideFlags: 0
