@@ -11,7 +11,7 @@ public class HoleGeneration : MonoBehaviour
     for(int a = 0; a < 1;)
     {
       holePosition = floorPositions.ElementAt(Random.Range(0,floorPositions.Count));
-      if(holePosition != new Vector2Int(1, 1))
+      if(holePosition != new Vector2Int(0, 0))
       {
         int b = 0;
         int c = 0;

@@ -7,7 +7,7 @@ public class CrossBowTrapGeneration : MonoBehaviour
 {
     [SerializeField] private int trapAmount;
     [SerializeField] private GameObject crossbowTrap;
-    private GameObject CrossbowTrapHolder;
+    public GameObject CrossbowTrapHolder;
 
     public HashSet<Vector2Int> GenerateCrossbow(HashSet<Vector2Int> floorPositions, HashSet<Vector2Int> wallPositions, HashSet<Vector2Int> objectPositions)
     {

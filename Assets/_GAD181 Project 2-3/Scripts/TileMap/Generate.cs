@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Generate : MonoBehaviour
 {
-  [SerializeField] private GameObject player, cameraCamera;
+  [SerializeField] private GameObject player, cameraCamera, bossArena;
   private GameObject enemyHolder, heartHolder;
-  [SerializeField] private bool generateMap;
+  [SerializeField] private bool generateMap, generateButton;
 
 
     void Awake()
@@ -19,18 +19,41 @@ public class Generate : MonoBehaviour
 
     void Update()
     {
-      
+      if(Input.GetKeyDown(KeyCode.L) && generateButton)
+      {
+        GenerateMap();
+      }
     }
 
     public void GenerateMap()
     {
-      player.transform.position = new Vector2(0.5f,0.5f);
-      cameraCamera.transform.position = new Vector3(0.5f,0.5f, -10f);
-      GenerateTilemap();
+      if(GetComponent<ExitLadder>().roomsCleared < GetComponent<ExitLadder>().roomsToWin - 1 )
+      {
+        player.transform.position = new Vector2(0.5f,0.5f);
+        cameraCamera.transform.position = new Vector3(0.5f,0.5f, -10f);
+        player.GetComponent<Gun>().ammoCount = player.GetComponent<Gun>().maxAmmo;
+        GenerateTilemap();
+      } else {
+        player.transform.position = new Vector2(0.5f,0.5f);
+        cameraCamera.transform.position = new Vector3(0.5f,0.5f, -10f);
+        player.GetComponent<Gun>().ammoCount = player.GetComponent<Gun>().maxAmmo;
+        Destroy(enemyHolder);
+        Destroy(heartHolder);
+        if(GetComponent<CrossBowTrapGeneration>().CrossbowTrapHolder != null)
+        {
+          Destroy(GetComponent<CrossBowTrapGeneration>().CrossbowTrapHolder);
+        }
+        GetComponent<TileMapPainter>().ClearAll();
+        GetComponent<EnemyGeneration>().GenerateBoss();
+        GetComponent<ExitLadder>().holeOverlap = new Vector2Int(0, -5);
+        GetComponent<TileMapPainter>().PaintHoleTile(new Vector2Int(0, -5));
+        bossArena.SetActive(true);
+      }
     }
 
       private void GenerateTilemap()
       {
+        bossArena.SetActive(false);
         HashSet<Vector2Int> floorPositions = GetComponent<FloorGeneration>().GenerateFloor();
         GetComponent<TileMapPainter>().PaintFloorTiles(floorPositions);
         HashSet<Vector2Int> wallPositions = GetComponent<WallGeneration>().GenerateWall(floorPositions);

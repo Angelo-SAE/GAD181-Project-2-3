@@ -6,7 +6,7 @@ public class ExitLadder : MonoBehaviour
 {
 
   private bool interactable;
-  [SerializeField] private GameObject winMenu;
+  [SerializeField] private GameObject winMenu, exitPrompt;
   public Vector2Int holeOverlap;
   public int roomsCleared, roomsToWin;
   public bool holeClosed;
@@ -15,13 +15,20 @@ public class ExitLadder : MonoBehaviour
   void Update()
   {
     CheckInteractable();
+    if(!holeClosed && interactable)
+    {
+      exitPrompt.SetActive(true);
+    } else {
+      exitPrompt.SetActive(false);
+    }
     if(!GamePause.paused && interactable && Input.GetButtonDown("Interact"))
     {
       ExitMenu();
     }
-    if(EnemyCount.enemyCount <= 0 && holeClosed)
+    if(EnemyCount.enemyCount <= 0 && holeClosed && !EnemyCount.bossAlive)
     {
       GetComponent<TileMapPainter>().PaintHoleOpenTile(holeOverlap);
+      holeClosed = false;
     }
   }
 

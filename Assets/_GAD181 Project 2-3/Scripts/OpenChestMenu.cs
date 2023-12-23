@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenChestMenu : MonoBehaviour
 {
-  [SerializeField] private GameObject chestPanel, card1Storage, card2Storage;
+  [SerializeField] private GameObject chestPanel, card1Storage, card2Storage, chestPrompt;
   [SerializeField] private List<GameObject> cards;
   private bool menuOpen, interactable;
   public bool hasOpened;
@@ -18,7 +18,10 @@ public class OpenChestMenu : MonoBehaviour
         CheckInteractable();
         if(!GamePause.paused && interactable)
         {
+          chestPrompt.SetActive(true);
           OpenChest();
+        } else {
+          chestPrompt.SetActive(false);
         }
       }
     }
@@ -39,6 +42,7 @@ public class OpenChestMenu : MonoBehaviour
       {
         GetComponent<TileMapPainter>().PaintChestOpenTile(chestOverlap);
         hasOpened = true;
+        chestPrompt.SetActive(false);
         chestPanel.SetActive(true);
         List<GameObject> tempCards = new List<GameObject>(cards);
         for(int a = 0; a < 2; a++)

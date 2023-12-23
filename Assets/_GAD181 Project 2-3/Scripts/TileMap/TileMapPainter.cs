@@ -103,5 +103,12 @@ public class TileMapPainter : MonoBehaviour
     map.SetTile((Vector3Int)location, tile);
   }
 
-
+  public void ClearAll()
+  {
+    floorMap.ClearAllTiles();
+    wallMap.ClearAllTiles();
+    holeMap.ClearAllTiles();
+    chestMap.ClearAllTiles();
+    spikeMap.ClearAllTiles();
+  }
 }

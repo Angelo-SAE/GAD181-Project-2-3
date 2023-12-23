@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public float movementSpeed;
+    public float movementSpeed, iFrameDuration;
     public int health, maxHealth;
     [SerializeField] private Slider healthSlider, maxHealthSlider;
     [SerializeField] private SpriteRenderer playerSprite;
@@ -69,8 +69,20 @@ public class Player : MonoBehaviour
       rb2d.AddForce(direction * pushForce);
       StartCoroutine(mainCamera.GetComponent<CameraShake>().ShakeScreen());
       health -= damage;
+      StartCoroutine(IFrames());
+    }
+
+    private IEnumerator IFrames()
+    {
+      Physics2D.IgnoreLayerCollision(6, 7, true);
+      Physics2D.IgnoreLayerCollision(6, 8, true);
       playerSprite.color = new Color(0.67f, 0.1f, 0.1f);
-      Invoke("ChangeColorBack", 0.2f);
+      yield return new WaitForSeconds(0.1f);
+      playerSprite.color = new Color(1f, 1f, 0f);
+      yield return new WaitForSeconds(iFrameDuration);
+      ChangeColorBack();
+      Physics2D.IgnoreLayerCollision(6, 7, false);
+      Physics2D.IgnoreLayerCollision(6, 8, false);
     }
 
     private void ChangeColorBack()

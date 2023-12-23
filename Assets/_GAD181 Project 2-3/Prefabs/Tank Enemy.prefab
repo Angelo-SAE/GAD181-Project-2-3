@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bbaed1a80a960409bdcb1efce3ed8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 2500
+  pushForce: 2000
   damage: 2
 --- !u!114 &6820886999295703331
 MonoBehaviour:
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 2
-  enemyColliderSize: 1.5
+  enemyColliderSize: 1
   wallMask:
     serializedVersion: 2
     m_Bits: 512

@@ -25,6 +25,8 @@ public class Gun : MonoBehaviour
       angle = GunLooking();
       GunShooting();
       AmmoMaxUpdate();
+      ammoCount = Mathf.Clamp(ammoCount, 0, maxAmmo);
+      ammoSlider.value = ammoCount;
     }
   }
 
@@ -55,8 +57,6 @@ public class Gun : MonoBehaviour
     if(Input.GetButtonDown("Fire1") && readyToShoot && ammoCount > 0 && !reloading)
     {
       ammoCount -= bulletAmount;
-      ammoCount = Mathf.Clamp(ammoCount, 0, maxAmmo);
-      ammoSlider.value = Mathf.Clamp(ammoCount, 0, maxAmmo);
       StartCoroutine(ShootingDelay());
       readyToShoot = false;
       for(float a = bulletAmount; a > 0; a--)
@@ -98,7 +98,6 @@ public class Gun : MonoBehaviour
     for(float a = ammoCount; a < maxAmmo; a++)
     {
       yield return new WaitForSeconds(reloadSpeedd);
-      ammoSlider.value += 1;
       ammoCount++;
     }
     reloading = false;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyGeneration : MonoBehaviour
 {
-    [SerializeField] private GameObject enemySmall, enemyBig;
+    [SerializeField] private GameObject enemySmall, enemyBig, enemyBoss;
     [SerializeField] private int enemyMin, enemyMax;
     private int enemyAmount;
 
@@ -31,11 +31,17 @@ public class EnemyGeneration : MonoBehaviour
             a--;
             objectPositions.Add(enemyPosition);
             EnemyCount.enemyCount++;
-            int r = Random.Range(0, 100 + 1);
-            if(r < 20)
+            if(GetComponent<ExitLadder>().roomsCleared > 3)
             {
-              GameObject enemyT = Instantiate(enemyBig, new Vector3(enemyPosition.x + 0.5f, enemyPosition.y + 0.5f, -1f), transform.rotation, enemyHolder.transform);
-              enemyT.GetComponent<EnemyHealth>().heartHolder = heartHolder;
+              int r = Random.Range(0, 100 + 1);
+              if(r < 20)
+              {
+                GameObject enemyT = Instantiate(enemyBig, new Vector3(enemyPosition.x + 0.5f, enemyPosition.y + 0.5f, -1f), transform.rotation, enemyHolder.transform);
+                enemyT.GetComponent<EnemyHealth>().heartHolder = heartHolder;
+              } else {
+                GameObject enemyT = Instantiate(enemySmall, new Vector3(enemyPosition.x + 0.5f, enemyPosition.y + 0.5f, -1f), transform.rotation, enemyHolder.transform);
+                enemyT.GetComponent<EnemyHealth>().heartHolder = heartHolder;
+              }
             } else {
               GameObject enemyT = Instantiate(enemySmall, new Vector3(enemyPosition.x + 0.5f, enemyPosition.y + 0.5f, -1f), transform.rotation, enemyHolder.transform);
               enemyT.GetComponent<EnemyHealth>().heartHolder = heartHolder;
@@ -43,5 +49,11 @@ public class EnemyGeneration : MonoBehaviour
           }
         }
       }
+    }
+
+    public void GenerateBoss()
+    {
+      EnemyCount.enemyCount++;
+      GameObject enemyT = Instantiate(enemyBoss, new Vector3(0f + 0.5f, 5 + 0.5f, -1f), transform.rotation);
     }
 }
