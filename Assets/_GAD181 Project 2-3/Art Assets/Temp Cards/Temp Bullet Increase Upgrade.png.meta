@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Temp Bullet Increase Upgrade_0: 1391163976676495215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
