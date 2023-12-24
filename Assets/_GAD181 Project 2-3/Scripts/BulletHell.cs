@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class BulletHell : MonoBehaviour
 {
-    public GameObject bulletPrefab; 
-    public Transform BulletStart;    
-    public float Rate = 1.0f; 
+    public GameObject bulletPrefab;
+    public float Rate = 3f;
+    
 
-    private float timer = 0f;
-
-    void Update()
+    void Start()
     {
-       
-        timer += Time.deltaTime;
-
         
-        if (timer >= Rate)
-        {
-            
-            SpawnBullet();
-
-            
-            timer = 0f;
-        }
+        InvokeRepeating("ShootBullets", 0f, Rate);
     }
 
-    void SpawnBullet()
+   
+    void ShootBullets()
     {
-       
-        GameObject bullet = Instantiate(bulletPrefab, BulletStart.position, Quaternion.identity);
+        
+        SpawnBullet(Vector2.up);
+        SpawnBullet(Vector2.down);
+        SpawnBullet(Vector2.left);
+        SpawnBullet(Vector2.right);
+    }
 
-      
-        bullet.transform.parent = transform;
+    void SpawnBullet(Vector2 direction)
+    {
+        
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+        
+        bullet.transform.up = direction;
+        
     }
 }
