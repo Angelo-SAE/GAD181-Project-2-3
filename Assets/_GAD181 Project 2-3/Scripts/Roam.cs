@@ -8,6 +8,7 @@ public class Roam : MonoBehaviour
     private Vector2 currentDirection;
     private float timer = 0f;
     public float switchPath = 2f;
+    public LayerMask walls;
 
     void Start()
     {
@@ -19,9 +20,10 @@ public class Roam : MonoBehaviour
     {
       if(!GetComponent<Enemy>().active)
       {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, currentDirection, 0.5f, walls);
         timer += Time.deltaTime;
 
-        if (timer >= switchPath)
+        if (timer >= switchPath || hit)
         {
 
             SetRandomDirection();
@@ -29,15 +31,12 @@ public class Roam : MonoBehaviour
         }
 
         transform.Translate(currentDirection * moveSpeed * Time.deltaTime);
-      }  
+      }
     }
 
     void SetRandomDirection()
     {
-
         float randomAngle = Random.Range(0f, 2f * Mathf.PI);
-
-
         currentDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
     }
 }

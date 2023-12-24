@@ -15,7 +15,7 @@ public class ExitLadder : MonoBehaviour
   void Update()
   {
     CheckInteractable();
-    if(!holeClosed && interactable)
+    if(!holeClosed && interactable && !EnemyCount.bossAlive)
     {
       exitPrompt.SetActive(true);
     } else {
@@ -44,11 +44,11 @@ public class ExitLadder : MonoBehaviour
 
     private void ExitMenu()
     {
-      if(EnemyCount.enemyCount <= 0 && roomsCleared == roomsToWin)
+      if(EnemyCount.enemyCount <= 0 && roomsCleared == roomsToWin && !EnemyCount.bossAlive)
       {
         GamePause.Pause();
         winMenu.SetActive(true);
-      } else if(EnemyCount.enemyCount == 0)
+      } else if(EnemyCount.enemyCount <= 0 && !EnemyCount.bossAlive)
       {
         GetComponent<Generate>().GenerateMap();
         GetComponent<OpenChestMenu>().hasOpened = false;

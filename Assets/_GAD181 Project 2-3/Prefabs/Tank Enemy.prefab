@@ -587,6 +587,7 @@ MonoBehaviour:
   seeAhead: 2
   player: {fileID: 0}
   active: 0
+  boss: 0
   enemyAnimator: {fileID: 6280375586416780662}
 --- !u!114 &1568753527678020435
 MonoBehaviour:
@@ -603,6 +604,7 @@ MonoBehaviour:
   healthSlider: {fileID: 1352902120325945186}
   maxHealth: 500
   Death: {fileID: 2164998751768511594, guid: 32d3d632404efa745b68cee0980051fa, type: 3}
+  dropHearts: 1
   heartHolder: {fileID: 0}
   enemySprite: {fileID: 6709445979298751093}
   heartPickup: {fileID: 3680457347595360369, guid: 0edbeabb580d0fc49878c858ec26ebd4, type: 3}
@@ -634,6 +636,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   switchPath: 1.5
+  walls:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &6969895779742719169
 MonoBehaviour:
   m_ObjectHideFlags: 0

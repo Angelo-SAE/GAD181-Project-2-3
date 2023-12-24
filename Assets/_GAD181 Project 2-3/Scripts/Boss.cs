@@ -5,23 +5,27 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public GameObject Spawn;
+    public GameObject Spawn1, Spawn2;
     public float spawnCooldown = 3f;
 
     private void Start()
     {
-        InvokeRepeating("Move", 0f, spawnCooldown);
+        InvokeRepeating("SpawnEnemies", 0f, spawnCooldown);
     }
 
-    
 
-    private void Move()
+
+    private void SpawnEnemies()
     {
-        
-        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
-        transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
-
-        
-        Instantiate(Spawn, transform.position, Quaternion.identity);
+      EnemyCount.enemyCount++;
+      int r = Random.Range(0, 100 + 1);
+      if(r < 70)
+      {
+        GameObject enemy = Instantiate(Spawn1, transform.position, Quaternion.identity);
+        enemy.GetComponent<EnemyHealth>().dropHearts = false;
+      } else {
+        GameObject enemy = Instantiate(Spawn2, transform.position, Quaternion.identity);
+        enemy.GetComponent<EnemyHealth>().dropHearts = false;
+      }
     }
 }

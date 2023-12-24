@@ -31,7 +31,7 @@ public class EnemyGeneration : MonoBehaviour
             a--;
             objectPositions.Add(enemyPosition);
             EnemyCount.enemyCount++;
-            if(GetComponent<ExitLadder>().roomsCleared > 3)
+            if(GetComponent<ExitLadder>().roomsCleared > 2)
             {
               int r = Random.Range(0, 100 + 1);
               if(r < 20)

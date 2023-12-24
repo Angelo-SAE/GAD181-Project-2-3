@@ -47,6 +47,7 @@ public class Generate : MonoBehaviour
         GetComponent<EnemyGeneration>().GenerateBoss();
         GetComponent<ExitLadder>().holeOverlap = new Vector2Int(0, -5);
         GetComponent<TileMapPainter>().PaintHoleTile(new Vector2Int(0, -5));
+        GetComponent<ExitLadder>().holeClosed = true;
         bossArena.SetActive(true);
       }
     }

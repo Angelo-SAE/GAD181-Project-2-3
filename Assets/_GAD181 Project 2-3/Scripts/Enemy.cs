@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float movementSpeed, AttackRange, seeAhead;
     public GameObject player;
     private Rigidbody2D rb2d;
-    public bool active;
+    public bool active, boss;
     [SerializeField] private Animator enemyAnimator;
 
     void Start()
@@ -18,16 +18,19 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-      enemyAnimator.SetBool("Active", active);
-        if (active)
-        {
-          MoveTowardsPlayer();
-        } else {
-          if(IsPlayerInRange())
+      if(!boss)
+      {
+        enemyAnimator.SetBool("Active", active);
+          if (active)
           {
-            active = true;
+            MoveTowardsPlayer();
+          } else {
+            if(IsPlayerInRange())
+            {
+              active = true;
+            }
           }
-        }
+      }
     }
 
     public bool IsPlayerInRange()

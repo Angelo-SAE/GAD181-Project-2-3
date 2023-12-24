@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     public AudioSource Death;
     private bool alive;
+    public bool dropHearts, boss;
     public GameObject heartHolder;
     [SerializeField] private SpriteRenderer enemySprite;
     [SerializeField] private GameObject heartPickup;
@@ -23,30 +24,52 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-      enemySprite.color = new Color(0.67f, 0.1f, 0.1f);
-      Invoke("ChangeColorBack", 0.1f);
-      if(GetComponent<Enemy>().active)
+      if(!boss)
       {
-
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthUI();
-
-        if (currentHealth <= 0 && alive)
+        enemySprite.color = new Color(0.67f, 0.1f, 0.1f);
+        Invoke("ChangeColorBack", 0.1f);
+        if(GetComponent<Enemy>().active)
         {
-          alive = false;
-          EnemyCount.enemyCount--;
-          Instantiate(Death);
-          int a = Random.Range(0, 100 + 1);
-          if(a > 50)
+
+          currentHealth -= damage;
+          currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+          UpdateHealthUI();
+
+          if (currentHealth <= 0 && alive)
           {
-            Instantiate(heartPickup, gameObject.transform.position, gameObject.transform.rotation, heartHolder.transform);
+            alive = false;
+            EnemyCount.enemyCount--;
+            Instantiate(Death);
+            int a = Random.Range(0, 100 + 1);
+            if(a > 50 && dropHearts)
+            {
+              Instantiate(heartPickup, gameObject.transform.position, gameObject.transform.rotation, heartHolder.transform);
+            }
+            Destroy(gameObject);
           }
-          Destroy(gameObject);
-        }
 
+        } else {
+          GetComponent<Enemy>().active = true;
+          currentHealth -= damage;
+          currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+          UpdateHealthUI();
+
+          if (currentHealth <= 0 && alive)
+          {
+            alive = false;
+            EnemyCount.enemyCount--;
+            Instantiate(Death);
+            int a = Random.Range(0, 100 + 1);
+            if(a > 50 && dropHearts)
+            {
+              Instantiate(heartPickup, gameObject.transform.position, gameObject.transform.rotation, heartHolder.transform);
+            }
+            Destroy(gameObject);
+          }
+        }
       } else {
-        GetComponent<Enemy>().active = true;
+        enemySprite.color = new Color(0.67f, 0.1f, 0.1f);
+        Invoke("ChangeColorBack", 0.1f);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
@@ -57,13 +80,14 @@ public class EnemyHealth : MonoBehaviour
           EnemyCount.enemyCount--;
           Instantiate(Death);
           int a = Random.Range(0, 100 + 1);
-          if(a > 50)
+          if(a > 50 && dropHearts)
           {
             Instantiate(heartPickup, gameObject.transform.position, gameObject.transform.rotation, heartHolder.transform);
           }
           Destroy(gameObject);
         }
       }
+
     }
 
     private void ChangeColorBack()
